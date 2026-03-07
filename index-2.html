@@ -1,0 +1,4154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<!-- Mirrored from golden-western.sa/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Mar 2026 11:09:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="facebook-domain-verification" content="qfa38cis0yx9wyxkhw1m8211gp8hft" />
+    <title>Golden Western Ready-Mix Concrete | Building Excellence Since 2012</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    
+    <script src="../cdn.jsdelivr.net/npm/three%400.132.2/build/three.min.js"></script>
+    
+    <style>
+        :root {
+            /* Updated Colors to match new logo - Blue and Gold theme */
+            --primary: #003366; /* Dark Blue from logo */
+            --primary-light: #1a4d80;
+            --primary-dark: #002244;
+            --secondary: #FFD700; /* Gold from logo */
+            --secondary-light: #FFE44D;
+            --secondary-dark: #CCAA00;
+            --accent: #1a7431;
+            --light: #f8fafc;
+            --dark: #0a3d2a;
+            --gray: #64748b;
+            --gray-light: #cbd5e1;
+            --success: #10b981;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 40px rgba(0, 51, 102, 0.4); /* Blue Glow instead of Gold */
+            --border-radius: 20px;
+            --border-radius-lg: 30px;
+            --border-radius-xl: 40px;
+            
+            /* Light mode variables - Updated with Blue theme */
+            --bg-primary: var(--primary);
+            --bg-secondary: var(--primary-light);
+            --text-primary: var(--light);
+            --text-secondary: var(--gray-light);
+            --card-bg: rgba(0, 51, 102, 0.5);
+            --nav-bg: rgba(0, 51, 102, 0.95);
+            --footer-bg: var(--primary-light);
+        }
+
+        /* Light mode theme - Updated with Blue theme */
+        body.light-mode {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #e6f0ff;
+            --text-primary: #003366;
+            --text-secondary: #1a4d80;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --nav-bg: rgba(248, 250, 252, 0.95);
+            --footer-bg: #e6f0ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        body:not(.rtl) {
+            font-family: 'Montserrat', sans-serif;
+            direction: ltr;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        body.light-mode .top-bar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-mini {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-mini-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .contact-mini-item i {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            display: flex;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            margin-left: 10px;
+        }
+
+        body.light-mode .theme-switcher {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-btn.active {
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        body.light-mode .language-switcher {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-btn img {
+            width: 16px;
+            height: 12px;
+            border-radius: 2px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 49px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav.scrolled {
+            top: 0;
+            background: var(--nav-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+            background: var(--bg-primary);
+            padding: 2px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vertical Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body:not(.rtl) .mobile-menu {
+            left: -100%;
+            right: auto;
+            border-left: none;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        body:not(.rtl) .mobile-menu.active {
+            left: 0;
+            right: auto;
+        }
+
+        .mobile-menu-header {
+            padding: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .mobile-close-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .mobile-nav-links {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            transform: translateX(-10px);
+        }
+        
+        body:not(.rtl) .mobile-nav-links a:hover,
+        body:not(.rtl) .mobile-nav-links a.active {
+            transform: translateX(10px);
+        }
+
+        .mobile-nav-links a i {
+            width: 24px;
+            text-align: center;
+        }
+
+        .mobile-menu-footer {
+            padding: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .mobile-contact-item i {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .quote-btn {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* 3D Background - Updated colors */
+        #three-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        body.light-mode #three-container {
+            opacity: 0.2;
+        }
+
+        /* Hero Section - Video Background */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 120px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.95) 0%, rgba(26, 77, 128, 0.85) 100%); /* Updated to blue theme */
+            z-index: -1;
+        }
+
+        body.light-mode .video-overlay {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(230, 240, 255, 0.85) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-primary);
+            padding: 0 20px;
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2); /* Changed to gold with opacity */
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3); /* Changed to gold with opacity */
+            backdrop-filter: blur(10px);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%); /* Changed from var(--primary) to var(--secondary) */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6); /* Changed to gold */
+        }
+
+        .btn-secondary {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--text-primary);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--secondary-light);
+            box-shadow: var(--shadow);
+        }
+
+        /* Animated Stats */
+        .animated-stats {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .stat-card:hover::before {
+            right: 100%;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Changed to gold */
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); /* Changed from var(--primary) to var(--secondary) */
+            border-radius: 2px;
+        }
+
+        body:not(.rtl) .section-title::after {
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Why Choose Us - Glassmorphism Cards */
+        .why-choose-us {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%); /* Changed to gold with opacity */
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(180deg) scale(1.1);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 35px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent); /* Changed to gold with opacity */
+            transition: 0.5s;
+        }
+
+        .product-card:hover::before {
+            right: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .project-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-meta-item {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .project-meta-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Project Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .project-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-heavy);
+            border: 2px solid var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .modal-header {
+            padding: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .mock-projects {
+            margin-top: 30px;
+        }
+
+        .mock-projects-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mock-projects-title i {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .mock-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .mock-project-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.2); /* Changed to gold with opacity */
+        }
+
+        .mock-project-link:hover {
+            background: rgba(255, 215, 0, 0.2); /* Changed to gold with opacity */
+            transform: translateY(-3px);
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .mock-project-link i {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            font-size: 18px;
+        }
+
+        .mock-project-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .mock-project-info p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Partners Section */
+        .partners-section {
+            padding: 60px 0;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .partners-marquee-container {
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            mask-image: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+        }
+
+        .partners-marquee {
+            display: flex;
+            width: fit-content;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+            padding: 30px 0;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); } 
+        }
+
+        .partner-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 300px; 
+            padding: 10px 20px;
+            margin: 0 10px; 
+            opacity: 0.7;
+            transition: 0.5s ease;
+            user-select: none;
+            cursor: pointer;
+            filter: grayscale(100%);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+        }
+
+        /* Partner Images */
+        .partner-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-left: 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 5px;
+        }
+        
+        body:not(.rtl) .partner-img {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+
+        .partner-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 15px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: inherit;
+            width: 100%;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%); /* Changed from var(--primary) to var(--secondary) */
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.3); /* Updated to blue */
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            font-size: 20px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotateY(180deg);
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+        }
+
+        .contact-details h3 {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: rgba(0, 51, 102, 0.8); /* Updated to blue */
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        body.light-mode .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        body.light-mode .form-control {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); /* Changed to gold */
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 20px center;
+            background-size: 12px;
+            padding-right: 20px;
+        }
+        
+        body.rtl select.form-control {
+            background-position: right 20px center;
+        }
+
+        /* New Form Styles for Concrete Calculation */
+        .concrete-type-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .radio-input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+
+        .quantity-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .quantity-display {
+            background: rgba(255, 215, 0, 0.1); /* Changed to gold with opacity */
+            border: 2px solid rgba(255, 215, 0, 0.3); /* Changed to gold with opacity */
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .quantity-display.show {
+            display: block;
+        }
+
+        /* NEW: Certificate & Approval Papers Gallery Styles */
+        .gallery-slider-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .gallery-slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .gallery-slide {
+            display: none;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .gallery-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .gallery-image-container {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            aspect-ratio: 707 / 1000; /* A4 aspect ratio */
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .gallery-slide-content {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .gallery-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            margin-bottom: 10px;
+        }
+
+        .gallery-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .gallery-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .gallery-counter {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding: 20px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .gallery-thumbnail {
+            width: 60px;
+            height: 85px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-thumbnail.active {
+            border-color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            transform: translateY(-5px);
+        }
+
+        .gallery-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links h3 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+        
+        body:not(.rtl) .footer-links h3::after {
+            left: 0;
+            right: auto;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(-10px);
+        }
+        
+        body:not(.rtl) .footer-links li:hover {
+            transform: translateX(10px);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+        }
+        
+        /* Social Media Styles */
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .privacy-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary); /* Changed from var(--primary) to var(--secondary) */
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--shadow-glow);
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 90px;
+            }
+
+            nav {
+                top: 0;
+                padding: 10px 0;
+                border-bottom: none;
+            }
+            
+            .top-bar {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .stats-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+
+            .top-content { 
+                justify-content: center; 
+                text-align: center; 
+            }
+
+            .newsletter-form { 
+                flex-direction: column; 
+            }
+
+            .newsletter-input { 
+                width: 100%; 
+            }
+
+            .mobile-menu { 
+                width: 280px; 
+            }
+
+            .quantity-group {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-image-container {
+                aspect-ratio: 707 / 1000;
+            }
+
+            .modal-content {
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { 
+                font-size: 2rem; 
+            }
+
+            .stats-grid { 
+                grid-template-columns: 1fr; 
+            }
+
+            .hero-buttons { 
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .btn { 
+                width: 100%; 
+                max-width: 300px; 
+                justify-content: center; 
+            }
+
+            .projects-grid, .blog-grid { 
+                grid-template-columns: 1fr; 
+            }
+
+            .mobile-menu { 
+                width: 100%; 
+            }
+
+            .concrete-type-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gallery-image-container {
+                aspect-ratio: 1 / 1.414;
+            }
+
+            .gallery-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .gallery-counter {
+                font-size: 1rem;
+                min-width: 80px;
+            }
+
+            .mock-projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .fade-in { 
+            animation: fadeIn 1s ease; 
+        }
+    </style>
+</head>
+<body class="rtl light-mode">
+    <div id="three-container"></div>
+    
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalProjectTitle">مشروع</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container" id="videoContainer">
+                    <!-- YouTube video will be loaded here -->
+                </div>
+                <div class="mock-projects">
+                    <h4 class="mock-projects-title">
+                        <i class="fas fa-project-diagram"></i>
+                        <span id="mockProjectsTitle">مشاريع مماثلة</span>
+                    </h4>
+                    <div class="mock-projects-grid" id="mockProjectsGrid">
+                        <!-- Mock project links will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index-2.html" class="mobile-menu-logo">
+                <img src="logo.png" alt="Golden Western Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 class="mobile-company-name"> مصنع الغربية الذهبية للخرسانة الجاهزة</h1>
+                </div>
+            </a>
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <ul>
+                <li><a href="index-2.html" class="active"><i class="fas fa-home"></i> <span id="mobile-home">الرئيسية</span></a></li>
+                <li><a href="index-2.html#about"><i class="fas fa-info-circle"></i> <span id="mobile-about">من نحن</span></a></li>
+                <li><a href="index-2.html#why-choose-us"><i class="fas fa-check-circle"></i> <span id="mobile-why">لماذا نحن</span></a></li>
+                <li><a href="index-2.html#products"><i class="fas fa-box-open"></i> <span id="mobile-products">المنتجات</span></a></li>
+                <li><a href="index-2.html#projects"><i class="fas fa-hard-hat"></i> <span id="mobile-projects">المشاريع</span></a></li>
+                <li><a href="index-2.html#partners"><i class="fas fa-handshake"></i> <span id="mobile-partners">الشركاء</span></a></li>
+                <li><a href="index-2.html#blog"><i class="fas fa-newspaper"></i> <span id="mobile-blog">المدونة</span></a></li>
+                <li><a href="index-2.html#certificates"><i class="fas fa-certificate"></i> <span id="mobile-certificates">الشهادات</span></a></li>
+                <li><a href="index-2.html#approvals"><i class="fas fa-file-contract"></i> <span id="mobile-approvals">أوراق الاعتماد</span></a></li>
+                <li><a href="index-2.html#contact"><i class="fas fa-envelope"></i> <span id="mobile-contact">اتصل بنا</span></a></li>
+            </ul>
+            
+            <div style="margin-top: 30px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.1);">
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="en"> <img src="../flagcdn.com/16x12/us.png" alt="English Flag"> EN </button>
+                        <button class="lang-btn active" data-lang="ar"> <img src="../flagcdn.com/16x12/sa.png" alt="Arabic Flag"> AR </button>
+                    </div>
+                    <div class="theme-switcher">
+                        <button class="theme-btn" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <button class="theme-btn active" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-footer">
+            <div class="mobile-contact-info">
+                <div class="mobile-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span dir="ltr">+966 5 44 58 44 58</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span dir="ltr">info@golden-western.sa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-content">
+                <div class="contact-mini">
+                    <div class="contact-mini-item">
+                        <i class="fas fa-map-marker-alt"></i> جدة، المملكة العربية السعودية
+                    </div>
+                    <div class="contact-mini-item">
+                        <i class="fas fa-clock"></i> من الاثنين إلى السبت: 7 ص - 5 م
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="en"> <img src="../flagcdn.com/16x12/us.png" alt="English Flag"> EN </button>
+                        <button class="lang-btn active" data-lang="ar"> <img src="../flagcdn.com/16x12/sa.png" alt="Arabic Flag"> AR </button>
+                    </div>
+                    <div class="theme-switcher">
+                        <button class="theme-btn" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <button class="theme-btn active" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index-2.html" class="logo">
+                <img src="logo.png" alt="Golden Western Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 id="company-name">مصنع الغربية الذهبية</h1>
+                    <p id="company-tagline">للخرسانة الجاهزة  </p>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index-2.html" class="active">الرئيسية</a></li>
+                <li><a href="index-2.html#about">من نحن</a></li>
+                <li><a href="index-2.html#why-choose-us">لماذا نحن</a></li>
+                <li><a href="index-2.html#products">المنتجات</a></li>
+                <li><a href="index-2.html#projects">المشاريع</a></li>
+                <li><a href="index-2.html#partners">الشركاء</a></li>
+                <li><a href="index-2.html#blog">المدونة</a></li>
+                <li><a href="index-2.html#certificates">الشهادات</a></li>
+                <li><a href="index-2.html#approvals">أوراق الاعتماد</a></li>
+                <li><a href="index-2.html#contact">اتصل بنا</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="index-2.html#contact" class="quote-btn">
+                    <i class="fas fa-calculator"></i>
+                    <span id="quoteBtnText">اطلب عرض سعر</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero fade-in">
+        <div class="video-background">
+            <video autoplay muted loop playsinline><!-- Primary source with confirm=t for large file -->
+                <source 
+                    src="https://uca98d68a96d1eadcfce0a722fd7.dl.dropboxusercontent.com/cd/0/inline/C8MRNGQ1AtykrcVAZ4sNqAytiKVyuxn-ZGNsJmkQhcF7v5s3o1wOb4Pjkp0Vm9mOACeM6pHNpmcYOYOir_BCY2TeOd3qs8w_9bcZFHVvf3xSQ9BRunuJAAY4fVDKocBe_Dqg5wIKqw6x23TIBJ45HGHx/file#" 
+                    type="video/mp4">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&amp;w=1200" alt="موقع بناء" style="width:100%;height:100%;object-fit:cover;">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" id="hero-badge">ريادة الصناعة منذ عام ٢٠١٢</div>
+            <h1 class="hero-title" id="hero-title">بناء المستقبل<br><span>صبة تلو صبة</span></h1>
+            <p class="hero-subtitle" id="hero-subtitle">نحن نقدم حلول الخرسانة الجاهزة عالية الجودة بأسطول يزيد عن 100 خلاطة وتقنية ألمانية متقدمة.</p>
+            <div class="hero-buttons">
+                <a href="index-2.html#projects" class="btn btn-primary">
+                    <i class="fas fa-hard-hat"></i>
+                    <span id="explore-btn">شاهد المشاريع</span>
+                </a>
+                <a href="index-2.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-phone-alt"></i>
+                    <span id="contact-btn">اتصل بنا</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="animated-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="10">0+</div>
+                    <div class="stat-label" id="stat1">سنوات خبرة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="3">0+</div>
+                    <div class="stat-label" id="stat2">مصانع خلط</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="10">0+</div>
+                    <div class="stat-label" id="stat-stations">محطات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="120">0+</div>
+                    <div class="stat-label" id="stat3">خلاطات نقل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="25">0+</div>
+                    <div class="stat-label" id="stat4">مضخات متحركة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="about-title">عن  مصنع الغربية الذهبية للخرسانة الجاهزة</h2>
+                <p class="section-desc" id="about-desc">عقد من التميز في توريد الخرسانة الجاهزة، ودعم ازدهار البنية التحتية في المملكة العربية السعودية.</p>
+            </div>
+            <div class="about-grid">
+                <!-- يمكن إضافة محتوى هنا -->
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="why-title">لماذا تختار  مصنع الغربية الذهبية للخرسانة الجاهزة</h2>
+                <p class="section-desc" id="why-desc">اختبر الفرق مع تقنيتنا المتطورة والتزامنا الثابت بالجودة</p>
+            </div>
+            <div class="features-grid">
+                <!-- NEW: NRMCA Certificate Card -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature-nrmca-title">شهادة NRMCA المعتمدة</h3>
+                    <p class="feature-desc" id="feature-nrmca-desc">نحن واحدة من 3 شركات فقط في سوق الخرسانة السعودي تحمل شهادة NRMCA العالمية، مما يؤكد التزامنا بأعلى معايير الجودة والموثوقية في الصناعة.</p>
+                </div>
+                
+                <!-- NEW: Saudi Code Compliance Card -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature-code-title">متوافقة مع الكود السعودي</h3>
+                    <p class="feature-desc" id="feature-code-desc">جميع منتجاتنا الخرسانية متوافقة تماماً مع الكود السعودي لمواد البناء، مما يضمن الامتثال للمعايير المحلية والسلامة الهيكلية المطلوبة.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature1-title">جودة معتمدة عالميًا</h3>
+                    <p class="feature-desc" id="feature1-desc">عمليات معتمدة بشهادات ISO 9001:2015 و ISO 14001:2015 و ISO 45001:2018 لضمان المعايير الدولية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature2-title">تكنولوجيا متطورة</h3>
+                    <p class="feature-desc" id="feature2-desc">تكنولوجيا خلط ألمانية مع أنظمة آلية ومراقبة جودة فورية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature3-title">التحكم في درجة الحرارة</h3>
+                    <p class="feature-desc" id="feature3-desc">مصانع ثلج ومبردات في الموقع لدرجة حرارة الخرسانة المثالية في مناخ السعودية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck-moving"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature4-title">أسطول كبير</h3>
+                    <p class="feature-desc" id="feature4-desc">أكثر من ١٠٠ خلاطة مرسيدس مع تتبع GPS لخدمة لوجستية فعالة.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature5-title">مختبر الأبحاث والتطوير</h3>
+                    <p class="feature-desc" id="feature5-desc">مختبرات فحص حديثة للابتكار المستمر وضمان الجودة.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature6-title">فريق خبراء</h3>
+                    <p class="feature-desc" id="feature6-desc">مهندسون وفنيون مهرة لديهم عقود من الخبرة في صناعة البناء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="products-title">حلولنا الخرسانية</h2>
+                <p class="section-desc" id="products-desc">مجموعة شاملة من منتجات الخرسانة الجاهزة لكل احتياجات البناء</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 class="product-title" id="product1-title">خرسانة قياسية</h3>
+                    <p class="product-desc" id="product1-desc">درجات M20-M60 لأساسات المباني السكنية والتجارية مع متانة ممتازة.</p>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-title" id="product2-title">خرسانة عالية القوة</h3>
+                    <p class="product-desc" id="product2-desc">درجات M60-M100 للمباني الشاهقة والهياكل التي تتطلب قدرة تحمل فائقة.</p>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-title" id="product3-title">خرسانة ذاتية الدمك</h3>
+                    <p class="product-desc" id="product3-desc">تتدفق بسهولة في القوالب المعقدة دون اهتزاز، مثالية للهياكل المعقدة.</p>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-title" id="product4-title">متحكم في درجة الحرارة</h3>
+                    <p class="product-desc" id="product4-desc">خلطات خاصة مع تحكم في درجة الحرارة باستخدام مصانع الثلج للصب في الطقس الحار.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="projects-title">مشاريع مميزة</h2>
+                <p class="section-desc" id="projects-desc">تظهر تميزنا في مشاريع البناء الرئيسية عبر المملكة العربية السعودية</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-project="1">
+                    <div class="project-image">
+                        <img src="../upload.wikimedia.org/wikipedia/en/e/e8/Jeddah_Central_Development_Stadium.jpg" alt="ملعب جدة المركزي">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" id="project1-title">ملعب جدة المركزي</h3>
+                        <p class="project-desc" id="project1-desc">مخصص لكأس العالم 2034، حلول خرسانية متميزة لسعة 60,000 مقعد.</p>
+                        
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project1-meta1-value"></div>
+                                <div id="project1-meta1-label">سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project1-meta2-value"></div>
+                                <div id="project1-meta2-label">متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project1-meta3-value"></div>
+                                <div id="project1-meta3-label">السعة المقعدية</div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">بنية تحتية</span>
+                            <span class="project-tag">حجم كبير</span>
+                            <span class="project-tag">قوة عالية</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="2">
+                    <div class="project-image">
+                        <img src="../ruh-s3.bluvalt.com/api-nhc.sa/s3fs-public/styles/800x500/public/2024-11/SADAYEM%20desktop6f19.png?h=f5ff104d&amp;itok=0SbUoLGD" alt="مشروع ضاحية السديم السكني">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" id="project2-title">مشروع ضاحية السديم السكني</h3>
+                        <p class="project-desc" id="project2-desc">تطوير سكني واسع النطاق مع 46 فيلا يتطلب إمدادًا ثابتًا من الخرسانة عالية الحجم.</p>
+                        
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project2-meta1-value"></div>
+                                <div id="project2-meta1-label">سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project2-meta2-value"></div>
+                                <div id="project2-meta2-label">متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project2-meta3-value"></div>
+                                <div id="project2-meta3-label">فيلا مكتملة</div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">سكني</span>
+                            <span class="project-tag">حجم</span>
+                            <span class="project-tag">إسكان</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="3">
+                    <div class="project-image">
+                        <img src="../www.ulmaconstruction.com/en/projects/hydro-projects-wastewater-treatment-plants/water-storage-plant-briman-jeddah-saudi-arabia/gallery/6/%40%40images/6db97f3d-cb28-4257-ab50-7dfe010fab93.jpg" alt="محطة مياه البريمان">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" id="project3-title">محطة مياه البريمان</h3>
+                        <p class="project-desc" id="project3-desc">مشروع بنية تحتية حرجة يزود جدة بالمياه بمتطلبات خرسانية متخصصة.</p>
+                        
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project3-meta1-value"></div>
+                                <div id="project3-meta1-label">سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project3-meta2-value"></div>
+                                <div id="project3-meta2-label">متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project3-meta3-value"></div>
+                                <div id="project3-meta3-label">الطاقة (م³/يوم)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">خلطة خاصة</span>
+                            <span class="project-tag">بنية تحتية</span>
+                            <span class="project-tag">مقاومة للماء</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="4">
+                    <div class="project-image">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMWBcU17sAV62Jg0MM6XehSu2L2kp6rAN8k-ZUC=s680-w680-h510-rw" alt="مشاريع مدارس الأندلس">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" id="project4-title">مشاريع مدارس الأندلس</h3>
+                        <p class="project-desc" id="project4-desc">سلسلة من مشاريع تطوير الحرم الجامعي تتطلب خرسانة عالية الجودة ومتينة للأساسات والهياكل.</p>
+                        
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project4-meta1-value"></div>
+                                <div id="project4-meta1-label">سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project4-meta2-value"></div>
+                                <div id="project4-meta2-label">متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project4-meta3-value"></div>
+                                <div id="project4-meta3-label">مبنى مشيد</div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">تعليمي</span>
+                            <span class="project-tag">تجاري</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="5">
+                    <div class="project-image">
+                        <img src="../scontent.ffjr1-1.fna.fbcdn.net/v/t1.6435-9/69016304_102459617792354_7991456600386699264_n1253.jpg?_nc_cat=105&amp;ccb=1-7&amp;_nc_sid=6ee11a&amp;_nc_ohc=GzOvuMubk8UQ7kNvwE_4Fyf&amp;_nc_oc=AdkbJCVYfWtg2s_DeikKJc8LzK2yzN-DaOx0DcW3_N_yQ1R6KQvxD8bvF-y6mGZvXg4&amp;_nc_zt=23&amp;_nc_ht=scontent.ffjr1-1.fna&amp;_nc_gid=GkwR6DM00hHYZHzFGclJjA&amp;oh=00_AfmK5mxNFWiDxzBUCoA1WBIyuC5Mbnbx08KedkxkiCZihQ&amp;oe=6955BB2C" alt="مشاريع شركة الفال التعليمية">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" id="project5-title">مشاريع شركة الفال التعليمية</h3>
+                        <p class="project-desc" id="project5-desc">توريد خرسانة متحكم في درجة حرارتها لمشاريع مدرسية كبيرة وحساسة للمناخ في المنطقة.</p>
+                        
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project5-meta1-value"></div>
+                                <div id="project5-meta1-label">سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project5-meta2-value"></div>
+                                <div id="project5-meta2-label">متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value" id="project5-meta3-value"></div>
+                                <div id="project5-meta3-label">مجمع مطور</div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">تعليمي</span>
+                            <span class="project-tag">متحكم في درجة الحرارة</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="partners-title">شركاؤنا الموثوق بهم</h2>
+                <p class="section-desc" id="partners-desc">نتعاون مع الشركات الرائدة في مجال العقارات والبناء في المنطقة لبناء التميز.</p>
+            </div>
+            
+            <div class="partners-marquee-container" dir="ltr">
+                <div class="partners-marquee">
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG3vKEFMOkmaA/company-logo_200_200/company-logo_200_200/0/1707978292506?e=1766620800&amp;v=beta&amp;t=RsxQO4XHYyQJ8ZB9YElQabq-ZhN-eI_wbDa6pTr4jhs" alt="شعار إقناع" class="partner-img">
+                        <div class="partner-text" id="partner1">شركة إقناع العقارية</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="afag.jpg" alt="شعار آفاق" class="partner-img">
+                        <div class="partner-text" id="partner2">شركة آفاق للتطوير العقاري</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQElYyIH6hROjw/company-logo_200_200/company-logo_200_200/0/1705582901968/darco1_logo?e=1766620800&amp;v=beta&amp;t=X20WZvn6YqIfi0vTtxPjHJsWripKil-92Kye_j6aDCA" alt="شعار داركو" class="partner-img">
+                        <div class="partner-text" id="partner3">مشاريع شركة داركو</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="../www.almoayyedintl.com/wp-content/uploads/2020/04/image001aig.png" alt="شعار المؤيد" class="partner-img">
+                        <div class="partner-text" id="partner4">مشاريع مجموعة المؤيد</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQH9XiKqJmL_gg/company-logo_200_200/company-logo_200_200/0/1736235735919?e=1766620800&amp;v=beta&amp;t=-cv9aSTe5Ytm4sg2GmIa2Kkos-MRgJvpbM4Oct5MEUc" alt="شعار راز" class="partner-img">
+                        <div class="partner-text" id="partner5">شركة راز العقارية</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="rawabet.jpg" alt="شعار روابط" class="partner-img">
+                        <div class="partner-text" id="partner6">شركة روابط للتطوير</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="etmam.jpg" alt="شعار إتمام" class="partner-img">
+                        <div class="partner-text" id="partner7">شركة إتمام العربية</div>
+                    </div>
+                    
+                    <!-- Duplicates for Marquee Effect -->
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG3vKEFMOkmaA/company-logo_200_200/company-logo_200_200/0/1707978292506?e=1766620800&amp;v=beta&amp;t=RsxQO4XHYyQJ8ZB9YElQabq-ZhN-eI_wbDa6pTr4jhs" alt="شعار إقناع" class="partner-img">
+                        <div class="partner-text" id="partner1-dup">شركة إقناع العقارية</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="afag.jpg" alt="شعار آفاق" class="partner-img">
+                        <div class="partner-text" id="partner2-dup">شركة آفاق للتطوير العقاري</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQElYyIH6hROjw/company-logo_200_200/company-logo_200_200/0/1705582901968/darco1_logo?e=1766620800&amp;v=beta&amp;t=X20WZvn6YqIfi0vTtxPjHJsWripKil-92Kye_j6aDCA" alt="شعار داركو" class="partner-img">
+                        <div class="partner-text" id="partner3-dup">مشاريع شركة داركو</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="../www.almoayyedintl.com/wp-content/uploads/2020/04/image001aig.png" alt="شعار المؤيد" class="partner-img">
+                        <div class="partner-text" id="partner4-dup">مشاريع مجموعة المؤيد</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQH9XiKqJmL_gg/company-logo_200_200/company-logo_200_200/0/1736235735919?e=1766620800&amp;v=beta&amp;t=-cv9aSTe5Ytm4sg2GmIa2Kkos-MRgJvpbM4Oct5MEUc" alt="شعار راز" class="partner-img">
+                        <div class="partner-text" id="partner5-dup">شركة راز العقارية</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="rawabet.jpg" alt="شعار روابط" class="partner-img">
+                        <div class="partner-text" id="partner6-dup">شركة روابط للتطوير</div>
+                    </div>
+                    <div class="partner-logo">
+                        <img src="etmam.jpg" alt="شعار إتمام" class="partner-img">
+                        <div class="partner-text" id="partner7-dup">شركة إتمام العربية</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="blog-title">أحدث الرؤى</h2>
+                <p class="section-desc" id="blog-desc">ابقَ على اطلاع بأحدث الاتجاهات والتقنيات والرؤى في صناعة البناء</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmvio6uDKabJp9dEtCyfiHaLaxB_OHaR46zQ&amp;s" alt="تكنولوجيا الخرسانة">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> <span id="blog1-date">١٥ فبراير ٢٠٢٤</span></span>
+                            <span><i class="far fa-folder"></i> <span id="blog1-category">التكنولوجيا</span></span>
+                        </div>
+                        <h3 class="blog-title" id="blog1-title">ابتكارات في تكنولوجيا الخرسانة 2024</h3>
+                        <p class="blog-excerpt" id="blog1-excerpt">اكتشف أحدث التطورات في تكنولوجيا الخرسانة التي تقوم بثورة في صناعة البناء.</p>
+                        <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px;">
+                            <span id="read-more1">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&amp;w=1200" alt="البناء المستدام">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> <span id="blog2-date">٢٨ يناير ٢٠٢٤</span></span>
+                            <span><i class="far fa-folder"></i> <span id="blog2-category">الاستدامة</span></span>
+                        </div>
+                        <h3 class="blog-title" id="blog2-title">ممارسات البناء المستدام</h3>
+                        <p class="blog-excerpt" id="blog2-excerpt">تعرف على حلول الخرسانة الصديقة للبيئة وأساليب البناء المستدام لمستقبل أكثر اخضرارًا.</p>
+                        <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px;">
+                            <span id="read-more2">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&amp;w=1200" alt="إدارة المشاريع">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> <span id="blog3-date">١٠ ديسمبر ٢٠٢٣</span></span>
+                            <span><i class="far fa-folder"></i> <span id="blog3-category">الإدارة</span></span>
+                        </div>
+                        <h3 class="blog-title" id="blog3-title">إدارة المشاريع بكفاءة في البناء</h3>
+                        <p class="blog-excerpt" id="blog3-excerpt">أفضل الممارسات لإدارة مشاريع البناء واسعة النطاق بكفاءة وفي حدود الميزانية.</p>
+                        <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 13px;">
+                            <span id="read-more3">اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPDATED: Certificates Gallery Section - Now with Slider -->
+    <section id="certificates" class="gallery-slider-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="certificates-title">معرض الشهادات</h2>
+                <p class="section-desc" id="certificates-desc">شهاداتنا المعتمدة التي تؤكد التزامنا بأعلى معايير الجودة والسلامة</p>
+            </div>
+            <div class="gallery-slider-container">
+                <div class="gallery-slider" id="certificates-slider">
+                    <!-- Slides will be dynamically generated -->
+                </div>
+                <div class="gallery-nav">
+                    <button class="gallery-nav-btn" id="certificates-prev-btn" aria-label="Previous certificate">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="gallery-counter" id="certificates-counter">1 / 12</div>
+                    <button class="gallery-nav-btn" id="certificates-next-btn" aria-label="Next certificate">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="gallery-thumbnails" id="certificates-thumbnails">
+                    <!-- Thumbnails will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPDATED: Approval Papers Section (formerly Tests) -->
+    <section id="approvals" class="gallery-slider-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="approvals-title">أوراق اعتماد المشاريع</h2>
+                <p class="section-desc" id="approvals-desc">وثائق اعتماد المشاريع التي تثبت جاهزيتنا وتأهيلنا لمشاريع البناء الرئيسية</p>
+            </div>
+            <div class="gallery-slider-container">
+                <div class="gallery-slider" id="approvals-slider">
+                    <!-- Slides will be dynamically generated -->
+                </div>
+                <div class="gallery-nav">
+                    <button class="gallery-nav-btn" id="approvals-prev-btn" aria-label="Previous approval">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="gallery-counter" id="approvals-counter">1 / 15</div>
+                    <button class="gallery-nav-btn" id="approvals-next-btn" aria-label="Next approval">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="gallery-thumbnails" id="approvals-thumbnails">
+                    <!-- Thumbnails will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="section-title" id="newsletter-title">ابق على اطلاع</h2>
+                <p class="section-desc" id="newsletter-desc">اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات ورؤى الصناعة وأبرز المشاريع.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" id="newsletter-input" placeholder="أدخل بريدك الإلكتروني" required>
+                    <button type="submit" class="btn btn-primary" id="subscribe-btn">اشترك الآن</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="contact-title">تواصل معنا</h2>
+                <p class="section-desc" id="contact-desc">هل أنت مستعد لبدء مشروعك؟ اتصل بنا للحصول على استشارة الخبراء وعرض سعر.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 id="location-title">موقعنا</h3>
+                            <p id="location-text">  مبنى 9054،ابو وجاهة المرشدي، حي المرة، جدة، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 id="phone-title">أرقام الهاتف</h3>
+                            <p id="phone-text" dir="ltr">05 44 58 44 58<br>05 04 100 55 4</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 id="email-title">البريد الإلكتروني</h3>
+                            <p id="email-text" dir="ltr">info@golden-western.sa<br>info@golden-western.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="projectInquiryForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fullName" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" id="phone" placeholder="رقم الهاتف" required dir="ltr">
+                        </div>
+                        
+                        <!-- UPDATED: Product Selection Dropdown -->
+                        <div class="form-group">
+                            <select class="form-control" id="productType">
+                                <option value="">اختر نوع المنتج (اختياري)</option>
+                                <option value="15mpa">15 MPA (5 كيس)</option>
+                                <option value="20mpa">20 MPA (6 كيس)</option>
+                                <option value="25mpa">25 MPA (7 كيس)</option>
+                                <option value="30mpa">30 MPA (8 كيس)</option>
+                                <option value="35mpa">35 MPA (9 كيس)</option>
+                                <option value="40mpa">40 MPA (10 كيس)</option>
+                                <option value="fast-setting">خرسانة سريعة الشك (3-5-7 ايام)</option>
+                                <option value="colored">خرسانة ملونة</option>
+                                <option value="foam">خرسانة رغوية</option>
+                                <option value="special">خرسانة مواصفات خاصة</option>
+                            </select>
+                        </div>
+                        
+                        <!-- UPDATED: Concrete Type Radio Buttons -->
+                        <div class="concrete-type-group">
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" class="radio-input" name="concreteType" value="normal" checked>
+                                    <span id="concrete-normal">خرسانة عادية</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" class="radio-input" name="concreteType" value="resistant">
+                                    <span id="concrete-resistant">خرسانة مقاومة</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- UPDATED: Only Quantity Input (removed height, width, thickness) -->
+                        <div class="quantity-group">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="quantity" placeholder="الكمية المطلوبة (م³) (اختياري)" min="0" step="0.1">
+                            </div>
+                            <div class="quantity-display" id="quantityDisplay">
+                                0 م³
+                            </div>
+                        </div>
+                        
+                        <!-- UPDATED: Project Location -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="projectLocation" placeholder="موقع المشروع (اختياري)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="4" placeholder="تفاصيل المشروع" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            <span id="submit-btn">إرسال الاستفسار</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="index-2.html" class="logo" style="align-items: flex-start;">
+                        <img src="logo.png" alt="Golden Western Logo" class="logo-img">
+                        <div class="logo-text">
+                            <h1 style="font-size: 1.2rem;" class="footer-company-name"> مصنع الغربية الذهبية  </h1>
+                            <p class="footer-company-tagline"> للخرسانة الجاهزة</p>
+                        </div>
+                    </a>
+                    <p style="color: var(--text-secondary); margin-top: 15px; line-height: 1.7;" id="footer-desc">
+                        قيادة صناعة البناء بالجودة والابتكار والاستدامة منذ عام 2012.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/966544584458" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/company/golden-western-sa/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584653161813" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/goldenwesternsa" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.snapchat.com/add/golden-western?share_id=lP_OQlKx54k&amp;locale=en-US" class="social-link" target="_blank"><i class="fab fa-snapchat"></i></a>
+                        <a href="https://www.instagram.com/golden_western.sa/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@golden_western.sa" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 id="quick-links">روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index-2.html" id="footer-link-home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="index-2.html#about" id="footer-link-about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="index-2.html#why-choose-us" id="footer-link-why"><i class="fas fa-chevron-left"></i> لماذا نحن</a></li>
+                        <li><a href="index-2.html#products" id="footer-link-products"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 id="services-links">الخدمات</h3>
+                    <ul>
+                        <li><a href="index-2.html#projects" id="footer-link-projects"><i class="fas fa-chevron-left"></i> المشاريع</a></li>
+                        <li><a href="index-2.html#partners" id="footer-link-partners"><i class="fas fa-chevron-left"></i> الشركاء</a></li>
+                        <li><a href="index-2.html#blog" id="footer-link-blog"><i class="fas fa-chevron-left"></i> المدونة</a></li>
+                        <li><a href="index-2.html#certificates" id="footer-link-certificates"><i class="fas fa-chevron-left"></i> الشهادات</a></li>
+                        <li><a href="index-2.html#approvals" id="footer-link-approvals"><i class="fas fa-chevron-left"></i> أوراق الاعتماد</a></li>
+                        <li><a href="index-2.html#contact" id="footer-link-contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                        <li><a href="index-2.html#contact" id="footer-link-quote"><i class="fas fa-chevron-left"></i> اطلب عرض سعر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 id="contact-footer">معلومات الاتصال</h3>
+                    <p style="color: var(--text-secondary);">
+                        <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>  مبنى 9054،ابو وجاهة المرشدي، حي المرة، جدة، المملكة العربية السعودية
+                    </p>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">
+                        <i class="fas fa-phone-alt" style="color: var(--secondary);"></i> <span dir="ltr">+966 5 44 58 44 58</span>
+                    </p>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">
+                        <i class="fas fa-envelope" style="color: var(--secondary);"></i> <span dir="ltr">info@golden-western.sa</span>
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="current-year">2024</span>    مصنع الغربية الذهبية للخرسانة الجاهزة جميع الحقوق محفوظة.
+                <br>
+                <a href="privacy-policy.html" class="privacy-link" id="privacy-policy-link">سياسة الخصوصية</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="index-2.html" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // --- START 3D CONCRETE BACKGROUND - Updated colors ---
+        function init3DConcreteBackground() {
+            const container = document.getElementById('three-container');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            // Materials - Updated to blue and gold colors
+            const vibrantPrimaryColor = 0x003366; // Dark Blue from logo
+            const vibrantSecondaryColor = 0xFFD700; // Gold from logo
+            const transitMixerMaterial = new THREE.MeshPhongMaterial({
+                color: vibrantPrimaryColor,
+                specular: 0xffffff,
+                shininess: 150,
+                transparent: true,
+                opacity: 0.3
+            });
+            const cementMaterial = new THREE.MeshPhongMaterial({
+                color: 0x64748b,
+                specular: 0x333333,
+                shininess: 20,
+                transparent: true,
+                opacity: 0.3
+            });
+            const rebarMaterial = new THREE.MeshPhongMaterial({
+                color: 0x4b5563,
+                specular: 0x555555,
+                shininess: 80,
+                transparent: true,
+                opacity: 0.3
+            });
+
+            // 1. Create Transit Mixers (Trucks)
+            const mixerGeometry = new THREE.CylinderGeometry(0.6, 0.8, 2.5, 32);
+            const cabinGeometry = new THREE.BoxGeometry(1, 1, 1.5);
+            const meshes = []; // Store meshes for rotation
+            for (let i = 0; i < 5; i++) {
+                const mixer = new THREE.Mesh(mixerGeometry, transitMixerMaterial);
+                const cabin = new THREE.Mesh(cabinGeometry, transitMixerMaterial);
+                mixer.add(cabin);
+                cabin.position.set(0, 0, -1.5);
+                mixer.position.x = (Math.random() - 0.5) * 15;
+                mixer.position.y = (Math.random() - 0.5) * 15;
+                mixer.position.z = (Math.random() - 0.5) * 5;
+                mixer.rotation.x = Math.random() * Math.PI;
+                mixer.rotation.y = Math.random() * Math.PI;
+                scene.add(mixer);
+                meshes.push(mixer);
+            }
+
+            // 2. Create Cement Blocks
+            const blockGeometry = new THREE.BoxGeometry(0.5, 0.3, 0.7);
+            for (let i = 0; i < 15; i++) {
+                const block = new THREE.Mesh(blockGeometry, cementMaterial);
+                block.position.x = (Math.random() - 0.5) * 12;
+                block.position.y = (Math.random() - 0.5) * 12;
+                block.position.z = (Math.random() - 0.5) * 5;
+                block.rotation.x = Math.random() * Math.PI;
+                block.rotation.y = Math.random() * Math.PI;
+                scene.add(block);
+                meshes.push(block);
+            }
+
+            // 3. Create Concrete Pumps
+            const pumpGeometry = new THREE.CylinderGeometry(0.1, 0.1, 5, 8);
+            for (let i = 0; i < 4; i++) {
+                const pump = new THREE.Mesh(pumpGeometry, transitMixerMaterial);
+                pump.rotation.z = Math.PI / 2;
+                pump.position.x = (Math.random() - 0.5) * 20;
+                pump.position.y = (Math.random() - 0.5) * 20;
+                pump.position.z = (Math.random() - 0.5) * 5;
+                pump.rotation.x = Math.random() * Math.PI;
+                pump.rotation.y = Math.random() * Math.PI;
+                scene.add(pump);
+                meshes.push(pump);
+            }
+
+            // 4. Create Steel Rebards
+            const rebarGeometry = new THREE.TorusKnotGeometry(0.2, 0.05, 64, 8, 2, 3);
+            for (let i = 0; i < 8; i++) {
+                const rebar = new THREE.Mesh(rebarGeometry, rebarMaterial);
+                rebar.position.x = (Math.random() - 0.5) * 15;
+                rebar.position.y = (Math.random() - 0.5) * 15;
+                rebar.position.z = (Math.random() - 0.5) * 5;
+                rebar.rotation.x = Math.random() * Math.PI;
+                rebar.rotation.y = Math.random() * Math.PI;
+                scene.add(rebar);
+                meshes.push(rebar);
+            }
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            const pointLight = new THREE.PointLight(vibrantSecondaryColor, 10, 50); // Changed to gold
+            pointLight.position.set(0, 5, 5);
+            scene.add(pointLight);
+
+            // Animation
+            function animate() {
+                requestAnimationFrame(animate);
+                meshes.forEach(child => {
+                    child.rotation.x += 0.0005;
+                    child.rotation.y += 0.0005;
+                });
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        // --- END 3D CONCRETE BACKGROUND ---
+
+        // Counter animation logic
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            function updateCounter() {
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.count);
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    function step(timestamp) {
+                        const elapsed = timestamp - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const current = Math.floor(progress * target);
+                        counter.textContent = current + '+';
+
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    }
+                    requestAnimationFrame(step);
+                });
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+        
+        // --- Project Data Initialization ---
+        const projectData = {
+            project1: { year: 2026, m3: '250,000', units: '60,000' }, // Jeddah Central Stadium
+            project2: { year: 2024, m3: '35,000', units: '46' },     // Al-Sadeem Residential Complex
+            project3: { year: 2023, m3: '60,000', units: '500,000' }, // Buraiman Water Station
+            project4: { year: 2025, m3: '22,000', units: '8' },      // AL Andalos Schools
+            project5: { year: 2024, m3: '18,000', units: '6' }       // Al Fal Educational Schools Company
+        };
+        
+        function populateProjectData() {
+            for (const key in projectData) {
+                if (projectData.hasOwnProperty(key)) {
+                    const data = projectData[key];
+                    const meta1Value = document.getElementById(`${key}-meta1-value`);
+                    const meta2Value = document.getElementById(`${key}-meta2-value`);
+                    const meta3Value = document.getElementById(`${key}-meta3-value`);
+
+                    if (meta1Value) meta1Value.textContent = data.year;
+                    if (meta2Value) meta2Value.textContent = `${data.m3} م³`;
+                    if (meta3Value) meta3Value.textContent = data.units;
+                }
+            }
+        }
+        // --- END Project Data Initialization ---
+
+        // --- NEW: Project Modal Functionality ---
+        const projectModal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalProjectTitle = document.getElementById('modalProjectTitle');
+        const videoContainer = document.getElementById('videoContainer');
+        const mockProjectsGrid = document.getElementById('mockProjectsGrid');
+        const mockProjectsTitle = document.getElementById('mockProjectsTitle');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // YouTube videos for each project (sample links)
+        const projectVideos = {
+            1: 'https://www.youtube.com/embed/4bn6u8oCxr8', // Jeddah Central Stadium
+            2: 'https://www.youtube.com/embed/iS5SPcN0lHs', // Al-Sadeem Residential Complex
+            3: 'https://www.youtube.com/embed/AJFkU1bC3C0', // Buraiman Water Station
+            4: 'https://www.youtube.com/embed/vY2F-Sq4izA', // AL Andalos Schools
+            5: 'https://www.youtube.com/embed/vY2F-Sq4izA'  // Al Fal Educational Schools Company
+        };
+        
+        // Mock project links for each project
+        const mockProjects = {
+            1: [
+                { title: 'استاد الرياض', desc: 'سعة 80,000 مقعد', url: '#' },
+                { title: 'استاد الملك عبدالله', desc: 'سعة 62,000 مقعد', url: '#' },
+                { title: 'استاد جامعة الملك سعود', desc: 'سعة 25,000 مقعد', url: '#' }
+            ],
+            2: [
+                { title: 'مشروع النور السكني', desc: '40 فيلا سكنية', url: '#' },
+                { title: 'مشروع الضاحية الخضراء', desc: '35 وحدة سكنية', url: '#' },
+                { title: 'مشروع الواحة السكني', desc: '28 فيلا فاخرة', url: '#' }
+            ],
+            3: [
+                { title: 'محطة تحلية المياه', desc: 'سعة 250,000 م³/يوم', url: '#' },
+                { title: 'محطة معالجة الصرف الصحي', desc: 'سعة 150,000 م³/يوم', url: '#' },
+                { title: 'خزان المياه الرئيسي', desc: 'سعة 100,000 م³', url: '#' }
+            ],
+            4: [
+                { title: 'مجمع المدارس الدولية', desc: '10 مبانٍ تعليمية', url: '#' },
+                { title: 'حرم الجامعة الجديد', desc: '15 مبنى أكاديمي', url: '#' },
+                { title: 'مركز التدريب المهني', desc: '8 ورش تدريبية', url: '#' }
+            ],
+            5: [
+                { title: 'مدارس النخبة الدولية', desc: '6 مجمعات مدرسية', url: '#' },
+                { title: 'أكاديمية التميز التعليمية', desc: '4 حرم جامعي', url: '#' },
+                { title: 'مركز التعليم المتقدم', desc: '12 قاعة محاضرات', url: '#' }
+            ]
+        };
+        
+        function openProjectModal(projectId) {
+            const projectTitle = document.getElementById(`project${projectId}-title`).textContent;
+            const videoUrl = projectVideos[projectId];
+            const projects = mockProjects[projectId];
+            
+            // Update modal title
+            modalProjectTitle.textContent = projectTitle;
+            
+            // Load YouTube video
+            videoContainer.innerHTML = `
+                <iframe src="${videoUrl}" 
+                        title="فيديو المشروع" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            `;
+            
+            // Load mock projects
+            mockProjectsGrid.innerHTML = '';
+            projects.forEach(project => {
+                const projectLink = document.createElement('a');
+                projectLink.className = 'mock-project-link';
+                projectLink.href = project.url;
+                projectLink.target = '_blank';
+                projectLink.innerHTML = `
+                    <i class="fas fa-external-link-alt"></i>
+                    <div class="mock-project-info">
+                        <h4>${project.title}</h4>
+                        <p>${project.desc}</p>
+                    </div>
+                `;
+                mockProjectsGrid.appendChild(projectLink);
+            });
+            
+            // Show modal
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProjectModal() {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Event listeners for project cards
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                openProjectModal(projectId);
+            });
+        });
+        
+        // Close modal events
+        modalClose.addEventListener('click', closeProjectModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                closeProjectModal();
+            }
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                closeProjectModal();
+            }
+        });
+        // --- END Project Modal Functionality ---
+
+        // --- NEW: Gallery Slider Functions ---
+        function createGallerySlider(sliderId, totalItems, titlePrefix, imagePath, thumbPath) {
+            const slider = document.getElementById(sliderId);
+            const prevBtn = document.getElementById(sliderId.replace('-slider', '-prev-btn'));
+            const nextBtn = document.getElementById(sliderId.replace('-slider', '-next-btn'));
+            const counter = document.getElementById(sliderId.replace('-slider', '-counter'));
+            const thumbnails = document.getElementById(sliderId.replace('-slider', '-thumbnails'));
+            
+            let currentSlide = 0;
+            
+            // Create slides
+            for (let i = 0; i < totalItems; i++) {
+                const slide = document.createElement('div');
+                slide.className = `gallery-slide ${i === 0 ? 'active' : ''}`;
+                slide.id = `${sliderId}-slide-${i}`;
+                
+                // Use pattern: certs/cert_1.jpg, certs/cert_2.jpg, etc.
+                const imgNumber = i + 1;
+                const imageSrc = `${imagePath}${imgNumber}.jpg`;
+                
+                slide.innerHTML = `
+                    <div class="gallery-image-container">
+                        <img src="${imageSrc}" alt="${titlePrefix} ${imgNumber}" class="gallery-image" 
+                             onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=${titlePrefix}+${imgNumber}'">
+                    </div>
+                    <div class="gallery-slide-content">
+                        <div class="gallery-number">${imgNumber}</div>
+                        <div class="gallery-title">${titlePrefix} ${imgNumber}</div>
+                    </div>
+                `;
+                
+                slider.appendChild(slide);
+            }
+            
+            // Create thumbnails
+            for (let i = 0; i < totalItems; i++) {
+                const imgNumber = i + 1;
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `gallery-thumbnail ${i === 0 ? 'active' : ''}`;
+                thumbnail.dataset.index = i;
+                
+                const thumbSrc = `${thumbPath}${imgNumber}.jpg`;
+                thumbnail.innerHTML = `
+                    <img src="${thumbSrc}" alt="${titlePrefix} ${imgNumber}" 
+                         onerror="this.src='https://via.placeholder.com/60x85/003366/FFD700?text=${imgNumber}'">
+                `;
+                
+                thumbnail.addEventListener('click', () => goToSlide(i));
+                thumbnails.appendChild(thumbnail);
+            }
+            
+            function updateSlider() {
+                // Update slides
+                document.querySelectorAll(`#${sliderId} .gallery-slide`).forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Update thumbnails
+                document.querySelectorAll(`#${sliderId.replace('-slider', '-thumbnails')} .gallery-thumbnail`).forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Update counter
+                counter.textContent = `${currentSlide + 1} / ${totalItems}`;
+                
+                // Update button states
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalItems - 1;
+            }
+            
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+            
+            function nextSlide() {
+                if (currentSlide < totalItems - 1) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            }
+            
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight' && currentSlide < totalItems - 1) {
+                    nextSlide();
+                }
+            });
+            
+            // Initialize
+            updateSlider();
+        }
+        
+        function setupGalleries() {
+            // Certificates Gallery (12 items)
+            createGallerySlider('certificates-slider', 12, 'شهادة', '/certs/cert_', '/certs/cert_');
+            
+            // Approvals Gallery (15 items) - Changed from Tests to Approvals
+            createGallerySlider('approvals-slider', 15, 'وثيقة اعتماد', '/approvals/approval_', '/approvals/approval_');
+        }
+        // --- END Gallery Slider Functions ---
+
+        // --- UPDATED: Concrete Calculation Logic ---
+        function setupConcreteCalculation() {
+            const quantityInput = document.getElementById('quantity');
+            const quantityDisplay = document.getElementById('quantityDisplay');
+            
+            // Update display when quantity is manually entered
+            quantityInput.addEventListener('input', function() {
+                const quantity = parseFloat(this.value) || 0;
+                if (quantity > 0) {
+                    quantityDisplay.textContent = `${quantity.toFixed(2)} م³`;
+                    quantityDisplay.classList.add('show');
+                } else {
+                    quantityDisplay.classList.remove('show');
+                }
+            });
+            
+            // Show display if there's already a value
+            if (quantityInput.value) {
+                const quantity = parseFloat(quantityInput.value) || 0;
+                if (quantity > 0) {
+                    quantityDisplay.textContent = `${quantity.toFixed(2)} م³`;
+                    quantityDisplay.classList.add('show');
+                }
+            }
+        }
+        // --- END Concrete Calculation Logic ---
+
+        // --- NEW: Google Sheets Integration ---
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwsygdXY2S0mt0_ydAgeL9CngqddHkZarUTK76rEoDB6YBnObJC96EkwfMZUV2rTnUb/exec'; // Replace with your Google Apps Script URL
+        
+      
+
+async function submitToGoogleSheets(formData) {
+    try {
+        // Convert formData object to URL-encoded string
+        const formBody = new URLSearchParams();
+        for (const key in formData) {
+            if (formData[key] !== undefined && formData[key] !== null) {
+                formBody.append(key, formData[key]);
+            }
+        }
+        
+        // Use a proxy approach to avoid CORS issues
+        const response = await fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formBody.toString()
+        });
+        
+        // Try to get response text (might fail due to CORS)
+        try {
+            const responseText = await response.text();
+            console.log('Google Sheets response:', responseText);
+            return { success: true, message: 'Data submitted successfully' };
+        } catch (e) {
+            // Even if we can't read the response, the request might have succeeded
+            return { success: true, message: 'Request sent (CORS prevented response reading)' };
+        }
+    } catch (error) {
+        console.error('Error submitting to Google Sheets:', error);
+        
+        // Fallback: Log data to console for debugging
+        console.log('Form data that would be sent:', formData);
+        
+        return { 
+            success: false, 
+            error: error.message,
+            fallbackData: formData // For debugging
+        };
+    }
+}
+// --- END Google Sheets Integration ---
+
+        // Language translations
+        const translations = {
+            en: {
+                // Company Name & Tagline
+                companyName: 'Golden Western',
+                companyTagline: 'Ready-Mix Concrete & Contracting',
+
+                // Navigation
+                nav: ['Home', 'About', 'Why Choose Us', 'Products', 'Projects', 'Partners', 'Blog', 'Certificates', 'Approval Papers', 'Contact'],
+                quoteBtn: 'Get Quote',
+                // Mobile Menu
+                'mobile-home': 'Home',
+                'mobile-about': 'About',
+                'mobile-why': 'Why Choose Us',
+                'mobile-products': 'Products',
+                'mobile-projects': 'Projects',
+                'mobile-partners': 'Partners',
+                'mobile-blog': 'Blog',
+                'mobile-certificates': 'Certificates',
+                'mobile-approvals': 'Approval Papers',
+                'mobile-contact': 'Contact',
+                // Hero
+                heroBadge: 'Leading the Industry Since 2012',
+                heroTitle: 'Building the Future',
+                heroSubtitle: 'One Pour at a Time',
+                heroDesc: 'We deliver high-quality ready-mix concrete solutions with a fleet of 100+ mixers and advanced German technology.',
+                exploreBtn: 'View Projects',
+                contactBtn: 'Contact Us',
+                // Stats
+                stat1: 'Years Experience',
+                stat2: 'Batching Plants',
+                'stat-stations': 'Stations',
+                stat3: 'Transit Mixers',
+                stat4: 'Mobile Pumps',
+
+                // About Section Translation
+                aboutTitle: 'About Golden Western',
+                aboutDesc: 'A decade of excellence in ready-mix concrete supply, powering Saudi Arabia\'s infrastructure boom.',
+
+                // Why Choose Us
+                whyTitle: 'Why Choose Golden Western',
+                whyDesc: 'Experience the difference with our cutting-edge technology and unwavering commitment to quality',
+                // NEW: NRMCA Certificate
+                'feature-nrmca-title': 'NRMCA Certified',
+                'feature-nrmca-desc': 'We are one of only 3 companies in the Saudi concrete market holding the global NRMCA certificate, confirming our commitment to the highest standards of quality and reliability in the industry.',
+                // NEW: Saudi Code Compliance
+                'feature-code-title': 'Saudi Code Compliant',
+                'feature-code-desc': 'All our concrete products are fully compliant with the Saudi Building Materials Code, ensuring compliance with local standards and required structural safety.',
+                feature1Title: 'ISO Certified Quality',
+                feature1Desc: 'ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 certified operations ensuring international standards.',
+                feature2Title: 'Advanced Technology',
+                feature2Desc: 'German batching technology with automated systems and real-time quality monitoring.',
+                feature3Title: 'Temperature Control',
+                feature3Desc: 'On-site ice plants and chillers for optimal concrete temperature in Saudi climate.',
+                feature4Title: 'Large Fleet',
+                feature4Desc: '100+ Mercedes mixers with GPS tracking for efficient delivery logistics.',
+                feature5Title: 'R&D Laboratory',
+                feature5Desc: 'State-of-the-art testing labs for continuous innovation and quality assurance.',
+                feature6Title: 'Expert Team',
+                feature6Desc: 'Skilled engineers and technicians with decades of construction industry experience.',
+                // Products
+                productsTitle: 'Our Concrete Solutions',
+                productsDesc: 'Comprehensive range of ready-mix concrete products for every construction need',
+                product1Title: 'Standard Concrete',
+                product1Desc: 'Grades M20-M60 for residential and commercial foundations with excellent durability.',
+                product2Title: 'High Strength Concrete',
+                product2Desc: 'M60-M100 grades for high-rise buildings and structures requiring superior load capacity.',
+                product3Title: 'Self-Compacting Concrete',
+                product3Desc: 'Flows easily into intricate formwork without vibration, perfect for complex structures.',
+                product4Title: 'Temperature Controlled',
+                product4Desc: 'Special mixes with temperature control using ice plants for hot weather concreting.',
+                // Projects
+                projectsTitle: 'Featured Projects',
+                projectsDesc: 'Showcasing our excellence in major construction projects across Saudi Arabia',
+                // Project 1
+                project1Title: 'Jeddah Central Stadium',
+                project1Desc: 'Dedicated to the 2034 World Cup, premium concrete solutions for a 60,000-seat capacity.',
+                project1Meta1Label: 'Completion Year',
+                project1Meta2Label: 'Cubic Meters',
+                project1Meta3Label: 'Seating Capacity',
+                // Project 2
+                project2Title: 'Al-Sadeem Residential Complex',
+                project2Desc: 'A large-scale residential development with 46 villas requiring consistent high-volume concrete supply.',
+                project2Meta1Label: 'Completion Year',
+                project2Meta2Label: 'Cubic Meters',
+                project2Meta3Label: 'Villas Completed',
+                // Project 3
+                project3Title: 'Buraiman Water Station',
+                project3Desc: 'Critical infrastructure project supplying water to Jeddah with specialized concrete requirements.',
+                project3Meta1Label: 'Completion Year',
+                project3Meta2Label: 'Cubic Meters',
+                project3Meta3Label: 'Capacity (m³/day)',
+                // Project 4
+                project4Title: 'AL Andalos Schools projects',
+                project4Desc: 'A series of educational campus developments requiring high-quality, durable concrete for foundations and structures.',
+                project4Meta1Label: 'Completion Year',
+                project4Meta2Label: 'Cubic Meters',
+                project4Meta3Label: 'Buildings Constructed',
+                // Project 5
+                project5Title: 'Al Fal Educational Schools Company projects',
+                project5Desc: 'Delivery of temperature-controlled concrete for large-scale, climate-sensitive school projects in the region.',
+                project5Meta1Label: 'Completion Year',
+                project5Meta2Label: 'Cubic Meters',
+                project5Meta3Label: 'Campuses Developed',
+                // Modal
+                mockProjectsTitle: 'Similar Projects',
+                
+                // Partners
+                partnersTitle: 'Our Trusted Partners',
+                partnersDesc: 'We collaborate with the region\'s leading real estate and construction companies to build excellence.',
+                partner1: 'Iqnaa Real Estate Company',
+                partner2: 'Aafaq Real Estate Development Company',
+                partner3: 'Darco Company Projects',
+                partner4: 'Almoayyed Group projects',
+                partner5: 'RAZ Real Estate Company',
+                partner6: 'Rwabet Developments Company',
+                partner7: 'Etmam Arabia Company',
+
+                // Blog
+                blogTitle: 'Latest Insights',
+                blogDesc: 'Stay updated with the latest trends, technologies, and insights in the construction industry',
+                blog1Date: 'Feb 15, 2024',
+                blog1Category: 'Technology',
+                blog1Title: 'Innovations in Concrete Technology 2024',
+                blog1Excerpt: 'Discover the latest advancements in concrete technology that are revolutionizing the construction industry.',
+                readMore1: 'Read More',
+                blog2Date: 'Jan 28, 2024',
+                blog2Category: 'Sustainability',
+                blog2Title: 'Sustainable Construction Practices',
+                blog2Excerpt: 'Learn about eco-friendly concrete solutions and sustainable construction methods for a greener future.',
+                readMore2: 'Read More',
+                blog3Date: 'Dec 10, 2023',
+                blog3Category: 'Management',
+                blog3Title: 'Efficient Project Management in Construction',
+                blog3Excerpt: 'Best practices for managing large-scale construction projects efficiently and within budget.',
+                readMore3: 'Read More',
+                
+                // NEW: Certificates Section
+                certificatesTitle: 'Certificates Gallery',
+                certificatesDesc: 'Our accredited certificates that confirm our commitment to the highest quality and safety standards',
+                
+                // NEW: Approvals Section (formerly Tests)
+                approvalsTitle: 'Project Approval Papers',
+                approvalsDesc: 'Project approval documents proving our readiness and qualification for major construction projects',
+                
+                // Newsletter
+                newsletterTitle: 'Stay Updated',
+                newsletterDesc: 'Subscribe to our newsletter for the latest updates, industry insights, and project highlights.',
+                newsletterPlaceholder: 'Enter your email address',
+                subscribeBtn: 'Subscribe',
+                // Contact
+                contactTitle: 'Get In Touch',
+                contactDesc: 'Ready to start your project? Contact us for expert consultation and quote.',
+                locationTitle: 'Our Location',
+                locationText: 'Building 9054, Abu Wajahah Al-Murshidi, Al-Murrah District, Jeddah, Saudi Arabia',
+                phoneTitle: 'Phone Numbers',
+                phoneText: '0 5 44 58 44 58<br>05 04 100 55 4',
+                emailTitle: 'Email Address',
+                emailText: 'info@golden-western.sa<br>info@golden-western.com',
+                submitBtn: 'Send Inquiry',
+                formName: 'Full Name',
+                formEmail: 'Email Address',
+                formPhone: 'Phone Number',
+                formMessage: 'Project Details',
+                
+                // NEW: Form Fields
+                productSelectPlaceholder: 'Select Product Type (Optional)',
+                productOptions: {
+                    '15mpa': '15 MPA (5 bags)',
+                    '20mpa': '20 MPA (6 bags)',
+                    '25mpa': '25 MPA (7 bags)',
+                    '30mpa': '30 MPA (8 bags)',
+                    '35mpa': '35 MPA (9 bags)',
+                    '40mpa': '40 MPA (10 bags)',
+                    'fast-setting': 'Fast-setting Concrete (3-5-7 days)',
+                    'colored': 'Colored Concrete',
+                    'foam': 'Foam Concrete',
+                    'special': 'Special Specifications Concrete'
+                },
+                concreteNormal: 'Normal Concrete',
+                concreteResistant: 'Resistant Concrete',
+                quantityPlaceholder: 'Required Quantity (m³) (Optional)',
+                projectLocationPlaceholder: 'Project Location (Optional)',
+                
+                // Footer
+                quickLinks: 'Quick Links',
+                servicesLinks: 'Services',
+                contactFooter: 'Contact Info',
+                footerDesc: 'Leading the construction industry with quality, innovation, and sustainability since 2012.',
+                'footer-link-home': 'Home',
+                'footer-link-about': 'About Us',
+                'footer-link-why': 'Why Choose Us',
+                'footer-link-products': 'Products',
+                'footer-link-projects': 'Projects',
+                'footer-link-partners': 'Partners',
+                'footer-link-blog': 'Blog',
+                'footer-link-certificates': 'Certificates',
+                'footer-link-approvals': 'Approval Papers',
+                'footer-link-contact': 'Contact Us',
+                'footer-link-quote': 'Get Quote',
+                'privacy-policy-link': 'Privacy Policy',
+                // Top bar
+                topBarLocation: 'Jeddah, Saudi Arabia',
+                topBarHours: 'Mon - Sat: 7:00 AM - 5:00 PM'
+            },
+            ar: {
+                // Company Name & Tagline
+                companyName: 'مصنع الغربية الذهبية   ',
+                companyTagline: 'للخرسانة الجاهزة  ',
+
+                // Navigation
+                nav: ['الرئيسية', 'من نحن', 'لماذا نحن', 'المنتجات', 'المشاريع', 'الشركاء', 'المدونة', 'الشهادات', 'أوراق الاعتماد', 'اتصل بنا'],
+                quoteBtn: 'اطلب عرض سعر',
+                // Mobile Menu
+                'mobile-home': 'الرئيسية',
+                'mobile-about': 'من نحن',
+                'mobile-why': 'لماذا نحن',
+                'mobile-products': 'المنتجات',
+                'mobile-projects': 'المشاريع',
+                'mobile-partners': 'الشركاء',
+                'mobile-blog': 'المدونة',
+                'mobile-certificates': 'الشهادات',
+                'mobile-approvals': 'أوراق الاعتماد',
+                'mobile-contact': 'اتصل بنا',
+                // Hero
+                heroBadge: 'ريادة الصناعة منذ عام ٢٠١٢',
+                heroTitle: 'بناء المستقبل',
+                heroSubtitle: 'صبة تلو صبة',
+                heroDesc: 'نحن نقدم حلول الخرسانة الجاهزة عالية الجودة بأسطول يزيد عن 100 خلاطة وتقنية ألمانية متقدمة.',
+                exploreBtn: 'شاهد المشاريع',
+                contactBtn: 'اتصل بنا',
+                // Stats
+                stat1: 'سنوات خبرة',
+                stat2: 'مصانع خلط',
+                'stat-stations': 'محطات',
+                stat3: 'خلاطات نقل',
+                stat4: 'مضخات متحركة',
+
+                // About Section Translation
+                aboutTitle: 'عن  مصنع الغربية الذهبية للخرسانة الجاهزة',
+                aboutDesc: 'عقد من التميز في توريد الخرسانة الجاهزة، ودعم ازدهار البنية التحتية في المملكة العربية السعودية.',
+
+                // Why Choose Us
+                whyTitle: 'لماذا تختار  مصنع الغربية الذهبية للخرسانة الجاهزة',
+                whyDesc: 'اختبر الفرق مع تقنيتنا المتطورة والتزامنا الثابت بالجودة',
+                // NEW: NRMCA Certificate
+                'feature-nrmca-title': 'شهادة NRMCA المعتمدة',
+                'feature-nrmca-desc': 'نحن واحدة من 3 شركات فقط في سوق الخرسانة السعودي تحمل شهادة NRMCA العالمية، مما يؤكد التزامنا بأعلى معايير الجودة والموثوقية في الصناعة.',
+                // NEW: Saudi Code Compliance
+                'feature-code-title': 'متوافقة مع الكود السعودي',
+                'feature-code-desc': 'جميع منتجاتنا الخرسانية متوافقة تماماً مع الكود السعودي لمواد البناء، مما يضمن الامتثال للمعايير المحلية والسلامة الهيكلية المطلوبة.',
+                feature1Title: 'جودة معتمدة عالميًا',
+                feature1Desc: 'عمليات معتمدة بشهادات ISO 9001:2015 و ISO 14001:2015 و ISO 45001:2018 لضمان المعايير الدولية.',
+                feature2Title: 'تكنولوجيا متطورة',
+                feature2Desc: 'تكنولوجيا خلط ألمانية مع أنظمة آلية ومراقبة جودة فورية.',
+                feature3Title: 'التحكم في درجة الحرارة',
+                feature3Desc: 'مصانع ثلج ومبردات في الموقع لدرجة حرارة الخرسانة المثالية في مناخ السعودية.',
+                feature4Title: 'أسطول كبير',
+                feature4Desc: 'أكثر من ١٠٠ خلاطة مرسيدس مع تتبع GPS لخدمة لوجستية فعالة.',
+                feature5Title: 'مختبر الأبحاث والتطوير',
+                feature5Desc: 'مختبرات فحص حديثة للابتكار المستمر وضمان الجودة.',
+                feature6Title: 'فريق خبراء',
+                feature6Desc: 'مهندسون وفنيون مهرة لديهم عقود من الخبرة في صناعة البناء.',
+                // Products
+                productsTitle: 'حلولنا الخرسانية',
+                productsDesc: 'مجموعة شاملة من منتجات الخرسانة الجاهزة لكل احتياجات البناء',
+                product1Title: 'خرسانة قياسية',
+                product1Desc: 'درجات M20-M60 لأساسات المباني السكنية والتجارية مع متانة ممتازة.',
+                product2Title: 'خرسانة عالية القوة',
+                product2Desc: 'درجات M60-M100 للمباني الشاهقة والهياكل التي تتطلب قدرة تحمل فائقة.',
+                product3Title: 'خرسانة ذاتية الدمك',
+                product3Desc: 'تتدفق بسهولة في القوالب المعقدة دون اهتزاز، مثالية للهياكل المعقدة.',
+                product4Title: 'متحكم في درجة الحرارة',
+                product4Desc: 'خلطات خاصة مع تحكم في درجة الحرارة باستخدام مصانع الثلج للصب في الطقس الحار.',
+                // Projects
+                projectsTitle: 'مشاريع مميزة',
+                projectsDesc: 'تظهر تميزنا في مشاريع البناء الرئيسية عبر المملكة العربية السعودية',
+                // Project 1
+                project1Title: 'ملعب جدة المركزي',
+                project1Desc: 'مخصص لكأس العالم 2034، حلول خرسانية متميزة لسعة 60,000 مقعد.',
+                project1Meta1Label: 'سنة الانتهاء',
+                project1Meta2Label: 'متر مكعب',
+                project1Meta3Label: 'السعة المقعدية',
+                // Project 2
+                project2Title: 'مشروع ضاحية السديم السكني',
+                project2Desc: 'تطوير سكني واسع النطاق مع 46 فيلا يتطلب إمدادًا ثابتًا من الخرسانة عالية الحجم.',
+                project2Meta1Label: 'سنة الانتهاء',
+                project2Meta2Label: 'متر مكعب',
+                project2Meta3Label: 'فيلا مكتملة',
+                // Project 3
+                project3Title: 'محطة مياه البريمان',
+                project3Desc: 'مشروع بنية تحتية حرجة يزود جدة بالمياه بمتطلبات خرسانية متخصصة.',
+                project3Meta1Label: 'سنة الانتهاء',
+                project3Meta2Label: 'متر مكعب',
+                project3Meta3Label: 'الطاقة (م³/يوم)',
+                // Project 4
+                project4Title: 'مشاريع مدارس الأندلس',
+                project4Desc: 'سلسلة من مشاريع تطوير الحرم الجامعي تتطلب خرسانة عالية الجودة ومتينة للأساسات والهياكل.',
+                project4Meta1Label: 'سنة الانتهاء',
+                project4Meta2Label: 'متر مكعب',
+                project4Meta3Label: 'مبنى مشيد',
+                // Project 5
+                project5Title: 'مشاريع شركة الفال التعليمية',
+                project5Desc: 'توريد خرسانة متحكم في درجة حرارتها لمشاريع مدرسية كبيرة وحساسة للمناخ في المنطقة.',
+                project5Meta1Label: 'سنة الانتهاء',
+                project5Meta2Label: 'متر مكعب',
+                project5Meta3Label: 'مجمع مطور',
+                // Modal
+                mockProjectsTitle: 'مشاريع مماثلة',
+
+                // Partners
+                partnersTitle: 'شركاؤنا الموثوق بهم',
+                partnersDesc: 'نتعاون مع الشركات الرائدة في مجال العقارات والبناء في المنطقة لبناء التميز.',
+                partner1: 'شركة إقناع العقارية',
+                partner2: 'شركة آفاق للتطوير العقاري',
+                partner3: 'مشاريع شركة داركو',
+                partner4: 'مشاريع مجموعة المؤيد',
+                partner5: 'شركة راز العقارية',
+                partner6: 'شركة روابط للتطوير',
+                partner7: 'شركة إتمام العربية',
+
+                // Blog
+                blogTitle: 'أحدث الرؤى',
+                blogDesc: 'ابقَ على اطلاع بأحدث الاتجاهات والتقنيات والرؤى في صناعة البناء',
+                blog1Date: '١٥ فبراير ٢٠٢٤',
+                blog1Category: 'التكنولوجيا',
+                blog1Title: 'ابتكارات في تكنولوجيا الخرسانة 2024',
+                blog1Excerpt: 'اكتشف أحدث التطورات في تكنولوجيا الخرسانة التي تقوم بثورة في صناعة البناء.',
+                readMore1: 'اقرأ المزيد',
+                blog2Date: '٢٨ يناير ٢٠٢٤',
+                blog2Category: 'الاستدامة',
+                blog2Title: 'ممارسات البناء المستدام',
+                blog2Excerpt: 'تعرف على حلول الخرسانة الصديقة للبيئة وأساليب البناء المستدام لمستقبل أكثر اخضرارًا.',
+                readMore2: 'اقرأ المزيد',
+                blog3Date: '١٠ ديسمبر ٢٠٢٣',
+                blog3Category: 'الإدارة',
+                blog3Title: 'إدارة المشاريع بكفاءة في البناء',
+                blog3Excerpt: 'أفضل الممارسات لإدارة مشاريع البناء واسعة النطاق بكفاءة وفي حدود الميزانية.',
+                readMore3: 'اقرأ المزيد',
+                
+                // NEW: Certificates Section
+                certificatesTitle: 'معرض الشهادات',
+                certificatesDesc: 'شهاداتنا المعتمدة التي تؤكد التزامنا بأعلى معايير الجودة والسلامة',
+                
+                // NEW: Approvals Section (formerly Tests)
+                approvalsTitle: 'أوراق اعتماد المشاريع',
+                approvalsDesc: 'وثائق اعتماد المشاريع التي تثبت جاهزيتنا وتأهيلنا لمشاريع البناء الرئيسية',
+                
+                // Newsletter
+                newsletterTitle: 'ابق على اطلاع',
+                newsletterDesc: 'اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات ورؤى الصناعة وأبرز المشاريع.',
+                newsletterPlaceholder: 'أدخل بريدك الإلكتروني',
+                subscribeBtn: 'اشترك الآن',
+                // Contact
+                contactTitle: 'تواصل معنا',
+                contactDesc: 'هل أنت مستعد لبدء مشروعك؟ اتصل بنا للحصول على استشارة الخبراء وعرض سعر.',
+                locationTitle: 'موقعنا',
+                locationText: '  مبنى 9054،ابو وجاهة المرشدي، حي المرة، جدة، المملكة العربية السعودية',
+                phoneTitle: 'أرقام الهاتف',
+                phoneText: '0 5 44 58 44 58<br>05 04 100 55 4',
+                emailTitle: 'البريد الإلكتروني',
+                emailText: 'info@golden-western.sa<br>info@golden-western.com',
+                submitBtn: 'إرسال الاستفسار',
+                formName: 'الاسم الكامل',
+                formEmail: 'البريد الإلكتروني',
+                formPhone: 'رقم الهاتف',
+                formMessage: 'تفاصيل المشروع',
+                
+                // NEW: Form Fields
+                productSelectPlaceholder: 'اختر نوع المنتج (اختياري)',
+                productOptions: {
+                    '15mpa': '15 MPA (5 كيس)',
+                    '20mpa': '20 MPA (6 كيس)',
+                    '25mpa': '25 MPA (7 كيس)',
+                    '30mpa': '30 MPA (8 كيس)',
+                    '35mpa': '35 MPA (9 كيس)',
+                    '40mpa': '40 MPA (10 كيس)',
+                    'fast-setting': 'خرسانة سريعة الشك (3-5-7 ايام)',
+                    'colored': 'خرسانة ملونة',
+                    'foam': 'خرسانة رغوية',
+                    'special': 'خرسانة مواصفات خاصة'
+                },
+                concreteNormal: 'خرسانة عادية',
+                concreteResistant: 'خرسانة مقاومة',
+                quantityPlaceholder: 'الكمية المطلوبة (م³) (اختياري)',
+                projectLocationPlaceholder: 'موقع المشروع (اختياري)',
+                
+                // Footer
+                quickLinks: 'روابط سريعة',
+                servicesLinks: 'الخدمات',
+                contactFooter: 'معلومات الاتصال',
+                footerDesc: 'قيادة صناعة البناء بالجودة والابتكار والاستدامة منذ عام 2012.',
+                'footer-link-home': 'الرئيسية',
+                'footer-link-about': 'من نحن',
+                'footer-link-why': 'لماذا نحن',
+                'footer-link-products': 'المنتجات',
+                'footer-link-projects': 'المشاريع',
+                'footer-link-partners': 'الشركاء',
+                'footer-link-blog': 'المدونة',
+                'footer-link-certificates': 'الشهادات',
+                'footer-link-approvals': 'أوراق الاعتماد',
+                'footer-link-contact': 'اتصل بنا',
+                'footer-link-quote': 'اطلب عرض سعر',
+                'privacy-policy-link': 'سياسة الخصوصية',
+                // Top bar
+                topBarLocation: 'جدة، المملكة العربية السعودية',
+                topBarHours: 'من الاثنين إلى السبت: 7 ص - 5 م'
+            }
+        };
+
+        // Theme switcher
+        function toggleTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.add('light-mode');
+                document.querySelectorAll('.theme-btn[data-theme="light"]').forEach(btn => btn.classList.add('active'));
+                document.querySelectorAll('.theme-btn[data-theme="dark"]').forEach(btn => btn.classList.remove('active'));
+            } else {
+                document.body.classList.remove('light-mode');
+                document.querySelectorAll('.theme-btn[data-theme="dark"]').forEach(btn => btn.classList.add('active'));
+                document.querySelectorAll('.theme-btn[data-theme="light"]').forEach(btn => btn.classList.remove('active'));
+            }
+        }
+
+        // Update content based on language
+        function updateContent(lang) {
+            const content = translations[lang];
+            const isRTL = lang === 'ar';
+
+            // Update body direction
+            document.body.classList.toggle('rtl', isRTL);
+            document.body.dir = isRTL ? 'rtl' : 'ltr';
+            
+            // Fix Marquee Direction in RTL
+            document.querySelector('.partners-marquee-container').dir = 'ltr';
+
+            // Update Company Name & Tagline
+            document.getElementById('company-name').textContent = content.companyName;
+            document.getElementById('company-tagline').textContent = content.companyTagline;
+            document.querySelectorAll('.mobile-company-name, .footer-company-name').forEach(el => el.textContent = content.companyName);
+            document.querySelectorAll('.footer-company-tagline').forEach(el => el.textContent = content.companyTagline);
+
+            // Update desktop navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach((link, index) => {
+                if (content.nav[index]) {
+                    link.textContent = content.nav[index];
+                }
+            });
+
+            // Update mobile navigation
+            document.getElementById('mobile-home').textContent = content['mobile-home'];
+            document.getElementById('mobile-about').textContent = content['mobile-about'];
+            document.getElementById('mobile-why').textContent = content['mobile-why'];
+            document.getElementById('mobile-products').textContent = content['mobile-products'];
+            document.getElementById('mobile-projects').textContent = content['mobile-projects'];
+            document.getElementById('mobile-partners').textContent = content['mobile-partners'];
+            document.getElementById('mobile-blog').textContent = content['mobile-blog'];
+            document.getElementById('mobile-certificates').textContent = content['mobile-certificates'];
+            document.getElementById('mobile-approvals').textContent = content['mobile-approvals'];
+            document.getElementById('mobile-contact').textContent = content['mobile-contact'];
+
+            // Update quote button
+            document.getElementById('quoteBtnText').textContent = content.quoteBtn;
+
+            // Update hero section
+            document.getElementById('hero-badge').textContent = content.heroBadge;
+            document.getElementById('hero-title').innerHTML = `${content.heroTitle}<br><span>${content.heroSubtitle}</span>`;
+            document.getElementById('hero-subtitle').textContent = content.heroDesc;
+            document.getElementById('explore-btn').textContent = content.exploreBtn;
+            document.getElementById('contact-btn').textContent = content.contactBtn;
+
+            // Update stats
+            document.getElementById('stat1').textContent = content.stat1;
+            document.getElementById('stat2').textContent = content.stat2;
+            document.getElementById('stat-stations').textContent = content['stat-stations'];
+            document.getElementById('stat3').textContent = content.stat3;
+            document.getElementById('stat4').textContent = content.stat4;
+
+            // Update About Section
+            document.getElementById('about-title').textContent = content.aboutTitle;
+            document.getElementById('about-desc').textContent = content.aboutDesc;
+
+            // Update Why Choose Us
+            document.getElementById('why-title').textContent = content.whyTitle;
+            document.getElementById('why-desc').textContent = content.whyDesc;
+            
+            // NEW: Update NRMCA Certificate Card
+            document.getElementById('feature-nrmca-title').textContent = content['feature-nrmca-title'];
+            document.getElementById('feature-nrmca-desc').textContent = content['feature-nrmca-desc'];
+            
+            // NEW: Update Saudi Code Compliance Card
+            document.getElementById('feature-code-title').textContent = content['feature-code-title'];
+            document.getElementById('feature-code-desc').textContent = content['feature-code-desc'];
+            
+            document.getElementById('feature1-title').textContent = content.feature1Title;
+            document.getElementById('feature1-desc').textContent = content.feature1Desc;
+            document.getElementById('feature2-title').textContent = content.feature2Title;
+            document.getElementById('feature2-desc').textContent = content.feature2Desc;
+            document.getElementById('feature3-title').textContent = content.feature3Title;
+            document.getElementById('feature3-desc').textContent = content.feature3Desc;
+            document.getElementById('feature4-title').textContent = content.feature4Title;
+            document.getElementById('feature4-desc').textContent = content.feature4Desc;
+            document.getElementById('feature5-title').textContent = content.feature5Title;
+            document.getElementById('feature5-desc').textContent = content.feature5Desc;
+            document.getElementById('feature6-title').textContent = content.feature6Title;
+            document.getElementById('feature6-desc').textContent = content.feature6Desc;
+
+            // Update Products
+            document.getElementById('products-title').textContent = content.productsTitle;
+            document.getElementById('products-desc').textContent = content.productsDesc;
+            document.getElementById('product1-title').textContent = content.product1Title;
+            document.getElementById('product1-desc').textContent = content.product1Desc;
+            document.getElementById('product2-title').textContent = content.product2Title;
+            document.getElementById('product2-desc').textContent = content.product2Desc;
+            document.getElementById('product3-title').textContent = content.product3Title;
+            document.getElementById('product3-desc').textContent = content.product3Desc;
+            document.getElementById('product4-title').textContent = content.product4Title;
+            document.getElementById('product4-desc').textContent = content.product4Desc;
+
+            // Update Projects
+            document.getElementById('projects-title').textContent = content.projectsTitle;
+            document.getElementById('projects-desc').textContent = content.projectsDesc;
+            
+            // Project 1
+            document.getElementById('project1-title').textContent = content.project1Title;
+            document.getElementById('project1-desc').textContent = content.project1Desc;
+            document.getElementById('project1-meta1-label').textContent = content.project1Meta1Label;
+            document.getElementById('project1-meta2-label').textContent = content.project1Meta2Label;
+            document.getElementById('project1-meta3-label').textContent = content.project1Meta3Label;
+            // Project 2
+            document.getElementById('project2-title').textContent = content.project2Title;
+            document.getElementById('project2-desc').textContent = content.project2Desc;
+            document.getElementById('project2-meta1-label').textContent = content.project2Meta1Label;
+            document.getElementById('project2-meta2-label').textContent = content.project2Meta2Label;
+            document.getElementById('project2-meta3-label').textContent = content.project2Meta3Label;
+            // Project 3
+            document.getElementById('project3-title').textContent = content.project3Title;
+            document.getElementById('project3-desc').textContent = content.project3Desc;
+            document.getElementById('project3-meta1-label').textContent = content.project3Meta1Label;
+            document.getElementById('project3-meta2-label').textContent = content.project3Meta2Label;
+            document.getElementById('project3-meta3-label').textContent = content.project3Meta3Label;
+            // Project 4
+            document.getElementById('project4-title').textContent = content.project4Title;
+            document.getElementById('project4-desc').textContent = content.project4Desc;
+            document.getElementById('project4-meta1-label').textContent = content.project4Meta1Label;
+            document.getElementById('project4-meta2-label').textContent = content.project4Meta2Label;
+            document.getElementById('project4-meta3-label').textContent = content.project4Meta3Label;
+            // Project 5
+            document.getElementById('project5-title').textContent = content.project5Title;
+            document.getElementById('project5-desc').textContent = content.project5Desc;
+            document.getElementById('project5-meta1-label').textContent = content.project5Meta1Label;
+            document.getElementById('project5-meta2-label').textContent = content.project5Meta2Label;
+            document.getElementById('project5-meta3-label').textContent = content.project5Meta3Label;
+            
+            // Update Modal
+            document.getElementById('mockProjectsTitle').textContent = content.mockProjectsTitle;
+
+            // Partners
+            document.getElementById('partners-title').textContent = content.partnersTitle;
+            document.getElementById('partners-desc').textContent = content.partnersDesc;
+            
+            // Update Partner Names
+            const partnerIds = ['partner1', 'partner2', 'partner3', 'partner4', 'partner5', 'partner6', 'partner7'];
+            partnerIds.forEach(id => {
+                document.getElementById(id).textContent = content[id];
+                document.getElementById(`${id}-dup`).textContent = content[id];
+            });
+
+            // Update Blog
+            document.getElementById('blog-title').textContent = content.blogTitle;
+            document.getElementById('blog-desc').textContent = content.blogDesc;
+            document.getElementById('blog1-date').textContent = content.blog1Date;
+            document.getElementById('blog1-category').textContent = content.blog1Category;
+            document.getElementById('blog1-title').textContent = content.blog1Title;
+            document.getElementById('blog1-excerpt').textContent = content.blog1Excerpt;
+            document.getElementById('read-more1').textContent = content.readMore1;
+            document.getElementById('blog2-date').textContent = content.blog2Date;
+            document.getElementById('blog2-category').textContent = content.blog2Category;
+            document.getElementById('blog2-title').textContent = content.blog2Title;
+            document.getElementById('blog2-excerpt').textContent = content.blog2Excerpt;
+            document.getElementById('read-more2').textContent = content.readMore2;
+            document.getElementById('blog3-date').textContent = content.blog3Date;
+            document.getElementById('blog3-category').textContent = content.blog3Category;
+            document.getElementById('blog3-title').textContent = content.blog3Title;
+            document.getElementById('blog3-excerpt').textContent = content.blog3Excerpt;
+            document.getElementById('read-more3').textContent = content.readMore3;
+            
+            // NEW: Update Certificates Section
+            document.getElementById('certificates-title').textContent = content.certificatesTitle;
+            document.getElementById('certificates-desc').textContent = content.certificatesDesc;
+            
+            // NEW: Update Approvals Section (formerly Tests)
+            document.getElementById('approvals-title').textContent = content.approvalsTitle;
+            document.getElementById('approvals-desc').textContent = content.approvalsDesc;
+
+            // Update Newsletter
+            document.getElementById('newsletter-title').textContent = content.newsletterTitle;
+            document.getElementById('newsletter-desc').textContent = content.newsletterDesc;
+            document.getElementById('newsletter-input').placeholder = content.newsletterPlaceholder;
+            document.getElementById('subscribe-btn').textContent = content.subscribeBtn;
+
+            // Update Contact
+            document.getElementById('contact-title').textContent = content.contactTitle;
+            document.getElementById('contact-desc').textContent = content.contactDesc;
+            document.getElementById('location-title').textContent = content.locationTitle;
+            document.getElementById('location-text').textContent = content.locationText;
+            document.getElementById('phone-title').textContent = content.phoneTitle;
+            document.getElementById('phone-text').innerHTML = content.phoneText;
+            document.getElementById('email-title').textContent = content.emailTitle;
+            document.getElementById('email-text').innerHTML = content.emailText;
+            document.getElementById('submit-btn').textContent = content.submitBtn;
+
+            // Update form placeholders
+            document.getElementById('fullName').placeholder = content.formName;
+            document.getElementById('email').placeholder = content.formEmail;
+            document.getElementById('phone').placeholder = content.formPhone;
+            document.getElementById('message').placeholder = content.formMessage;
+            
+            // NEW: Update contact form fields
+            const productSelect = document.getElementById('productType');
+            productSelect.innerHTML = `<option value="">${content.productSelectPlaceholder}</option>`;
+            for (const [key, value] of Object.entries(content.productOptions)) {
+                productSelect.innerHTML += `<option value="${key}">${value}</option>`;
+            }
+            
+            document.getElementById('concrete-normal').textContent = content.concreteNormal;
+            document.getElementById('concrete-resistant').textContent = content.concreteResistant;
+            document.getElementById('quantity').placeholder = content.quantityPlaceholder;
+            document.getElementById('projectLocation').placeholder = content.projectLocationPlaceholder;
+
+            // Update Footer
+            document.getElementById('quick-links').textContent = content.quickLinks;
+            document.getElementById('services-links').textContent = content.servicesLinks;
+            document.getElementById('contact-footer').textContent = content.contactFooter;
+            document.getElementById('footer-desc').textContent = content.footerDesc;
+            
+            // Localize Footer Links
+            document.getElementById('footer-link-home').textContent = content['footer-link-home'];
+            document.getElementById('footer-link-about').textContent = content['footer-link-about'];
+            document.getElementById('footer-link-why').textContent = content['footer-link-why'];
+            document.getElementById('footer-link-products').textContent = content['footer-link-products'];
+            document.getElementById('footer-link-projects').textContent = content['footer-link-projects'];
+            document.getElementById('footer-link-partners').textContent = content['footer-link-partners'];
+            document.getElementById('footer-link-blog').textContent = content['footer-link-blog'];
+            document.getElementById('footer-link-certificates').textContent = content['footer-link-certificates'];
+            document.getElementById('footer-link-approvals').textContent = content['footer-link-approvals'];
+            document.getElementById('footer-link-contact').textContent = content['footer-link-contact'];
+            document.getElementById('footer-link-quote').textContent = content['footer-link-quote'];
+            document.getElementById('privacy-policy-link').textContent = content['privacy-policy-link'];
+            
+            // Update Top Bar
+            const topBarItems = document.querySelectorAll('.contact-mini-item');
+            if (topBarItems.length >= 2) {
+                topBarItems[0].innerHTML = `<i class="fas fa-map-marker-alt"></i> ${content.topBarLocation}`;
+                topBarItems[1].innerHTML = `<i class="fas fa-clock"></i> ${content.topBarHours}`;
+            }
+        }
+
+        // Language switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const themeBtns = document.querySelectorAll('.theme-btn');
+
+        // Initialize with Arabic and Light Mode
+        populateProjectData();
+        updateContent('ar');
+        toggleTheme('light');
+        setupGalleries();
+        setupConcreteCalculation();
+
+        // Language switch event listeners
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll(`.lang-btn[data-lang="${lang}"]`).forEach(b => b.classList.add('active'));
+                
+                populateProjectData();
+                updateContent(lang);
+            });
+        });
+
+        // Theme switch event listeners
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.dataset.theme;
+                toggleTheme(theme);
+            });
+        });
+
+        // Toggle Mobile Menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+        menuOverlay.addEventListener('click', toggleMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Navbar Scroll and Active Link
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Video fallback
+        const video = document.querySelector('video');
+        if (video) {
+            video.addEventListener('error', function() {
+                this.style.display = 'none';
+            });
+        }
+        
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+       // Form submission
+document.getElementById('projectInquiryForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = {
+        name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        productType: document.getElementById('productType').value,
+        concreteType: document.querySelector('input[name="concreteType"]:checked').value,
+        quantity: document.getElementById('quantity').value,
+        projectLocation: document.getElementById('projectLocation').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        timestamp: new Date().toLocaleString('en-US', { 
+            timeZone: 'Asia/Riyadh',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }),
+        language: document.querySelector('.lang-btn.active')?.dataset.lang || 'ar',
+        source: 'golden-western-website'
+    };
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+        alert('Please fill in all required fields: Name, Email, Phone, and Message');
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('#projectInquiryForm button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Submit to Google Sheets
+        const result = await submitToGoogleSheets(formData);
+        
+        if (result.success) {
+            // Show success message
+            alert('شكراً لتواصلكم معنا! تم استلام طلبكم بنجاح وسنقوم بالرد عليكم في أقرب وقت ممكن.');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('quantityDisplay').textContent = '0 م³';
+            document.getElementById('quantityDisplay').classList.remove('show');
+            
+            // Optional: Send email notification (if you set this up)
+            sendEmailNotification(formData);
+            
+        } else {
+            // Fallback: Save to localStorage as backup
+            saveToLocalStorage(formData);
+            alert('شكراً لتواصلكم معنا! تم حفظ طلبكم محلياً وسنقوم بالرد عليكم في أقرب وقت ممكن.');
+            console.log('Form data saved locally:', formData);
+            
+            // Reset form
+            this.reset();
+            document.getElementById('quantityDisplay').textContent = '0 م³';
+            document.getElementById('quantityDisplay').classList.remove('show');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        
+        // Ultimate fallback
+        saveToLocalStorage(formData);
+        alert('شكراً لتواصلكم معنا! تم استلام طلبكم وسنقوم بالرد عليكم قريباً.');
+        
+        // Reset form
+        this.reset();
+        document.getElementById('quantityDisplay').textContent = '0 م³';
+        document.getElementById('quantityDisplay').classList.remove('show');
+    } finally {
+        // Restore button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+// Backup function to save data locally
+function saveToLocalStorage(formData) {
+    try {
+        // Get existing submissions or create new array
+        const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
+        
+        // Add new submission
+        submissions.push({
+            ...formData,
+            savedAt: new Date().toISOString()
+        });
+        
+        // Save back to localStorage (limit to last 50 submissions)
+        const recentSubmissions = submissions.slice(-50);
+        localStorage.setItem('formSubmissions', JSON.stringify(recentSubmissions));
+        
+        console.log('Saved to localStorage. Total submissions:', recentSubmissions.length);
+        
+        // Optional: Show notification to admin
+        if (submissions.length > 0) {
+            console.log('There are', submissions.length, 'submissions waiting in localStorage.');
+        }
+        
+    } catch (error) {
+        console.error('Error saving to localStorage:', error);
+    }
+}
+
+// Optional: Email notification function
+function sendEmailNotification(formData) {
+    // This would require a backend service
+    // For now, just log it
+    console.log('Email notification would be sent for:', formData);
+}
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-input').value;
+            
+            if (email) {
+                const formData = {
+                    email: email,
+                    type: 'newsletter',
+                    timestamp: new Date().toISOString()
+                };
+                
+                try {
+                    await submitToGoogleSheets(formData);
+                    alert('شكراً لاشتراكك في نشرتنا الإخبارية!');
+                    this.reset();
+                } catch (error) {
+                    console.log('Newsletter subscription saved locally:', email);
+                    alert('شكراً لاشتراكك في نشرتنا الإخبارية!');
+                    this.reset();
+                }
+            }
+        });
+        
+        // Initialize animations
+        window.addEventListener('load', () => {
+            init3DConcreteBackground();
+            animateCounters();
+        });
+    </script>
+</body>
+
+<!-- Mirrored from golden-western.sa/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Mar 2026 11:09:35 GMT -->
+</html>
