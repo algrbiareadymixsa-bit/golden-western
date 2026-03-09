@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="شركة Golden Western للخرسانة الجاهزة - شركة رائدة في مجال إنتاج وتوريد الخرسانة عالية الجودة في المملكة العربية السعودية">
-    <meta name="keywords" content="خرسانة جاهزة, concrete, ready mix, الخرسانة, Saudi Arabia, Jeddah, building materials">
-    <meta name="author" content="Golden Western Concrete Company">
+    <meta name="description" content="Golden Western - مصنع الغربية الذهبية للخرسانة الجاهزة | رائدة في صناعة الخرسانة منذ 2012 بأسطول يزيد عن 100 خلاطة وتقنية ألمانية متقدمة في جدة، المملكة العربية السعودية.">
+    <meta name="keywords" content="خرسانة جاهزة, خلاطات, concrete, ready mix, جدة, السعودية, بناء, construction, مصنع خرسانة">
+    <meta name="author" content="Golden Western">
     <meta name="robots" content="index, follow">
     
-    <!-- OpenGraph Tags -->
-    <meta property="og:title" content="شركة Golden Western للخرسانة الجاهزة">
-    <meta property="og:description" content="شركة رائدة في مجال إنتاج وتوريد الخرسانة عالية الجودة">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://golden-western.github.io/golden-western/">
-    <meta property="og:image" content="https://golden-western.github.io/golden-western/assets/images/og-default.webp">
+    <meta property="og:title" content="Golden Western | مصنع الغربية الذهبية للخرسانة الجاهزة">
+    <meta property="og:description" content="رائدة صناعة الخرسانة الجاهزة منذ 2012 - أسطول يزيد عن 100 خلاطة">
+    <meta property="og:image" content="assets/images/og-default.webp">
     
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="شركة Golden Western للخرسانة الجاهزة">
-    <meta name="twitter:description" content="شركة رائدة في مجال إنتاج وتوريد الخرسانة عالية الجودة">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://golden-western.github.io/golden-western/">
+    <meta property="twitter:title" content="Golden Western | مصنع الغربية الذهبية للخرسانة الجاهزة">
+    <meta property="twitter:description" content="رائدة صناعة الخرسانة الجاهزة منذ 2012 - أسطول يزيد عن 100 خلاطة">
     
-    <title>شركة Golden Western للخرسانة الجاهزة | الخرسانة الجاهزة في المملكة</title>
+    <title>Golden Western | مصنع الغربية الذهبية للخرسانة الجاهزة</title>
+    <link rel="icon" href="assets/images/logo.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,23 +38,63 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js" defer></script>
+    
     <style>
         /* Critical CSS for fast initial render */
+        :root {
+            --primary: #003366;
+            --primary-light: #1a4d80;
+            --primary-dark: #002244;
+            --secondary: #FFD700;
+            --secondary-light: #FFE44D;
+            --secondary-dark: #CCAA00;
+            --bg-primary: #003366;
+            --bg-secondary: #1a4d80;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --card-bg: rgba(0, 51, 102, 0.5);
+            --nav-bg: rgba(0, 51, 102, 0.95);
+            --footer-bg: #1a4d80;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cairo', sans-serif; background: #003366; color: #fff; }
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
-        .hero-bg-fallback {
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: var(--bg-primary); 
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Hero Video Background */
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #003366 0%, #1a4d80 50%, #003366 100%);
-            background-image: url('assets/images/hero/hero-1.jpg');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
             z-index: -2;
         }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
         .video-overlay {
             position: absolute;
             top: 0;
@@ -62,282 +104,397 @@
             background: linear-gradient(135deg, rgba(0,51,102,0.92) 0%, rgba(26,77,128,0.85) 100%);
             z-index: -1;
         }
+
+        body.light-mode .video-overlay {
+            background: linear-gradient(135deg, rgba(248,250,252,0.92) 0%, rgba(230,240,255,0.85) 100%);
+        }
     </style>
 </head>
-<body class="rtl">
+<body class="rtl light-mode">
+    <!-- Three.js Background Container -->
+    <div id="three-container"></div>
     
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">
+                <img src="assets/images/logo.png" alt="Golden Western Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 class="mobile-company-name">مصنع الغربية الذهبية</h1>
+                </div>
+            </a>
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <ul>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> <span>الرئيسية</span></a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> <span>من نحن</span></a></li>
+                <li><a href="#why-choose-us"><i class="fas fa-check-circle"></i> <span>لماذا نحن</span></a></li>
+                <li><a href="#products"><i class="fas fa-box-open"></i> <span>المنتجات</span></a></li>
+                <li><a href="#projects"><i class="fas fa-hard-hat"></i> <span>المشاريع</span></a></li>
+                <li><a href="#partners"><i class="fas fa-handshake"></i> <span>الشركاء</span></a></li>
+                <li><a href="#gallery"><i class="fas fa-certificate"></i> <span>الشهادات</span></a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> <span>اتصل بنا</span></a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu-footer">
+            <div class="mobile-contact-info">
+                <div class="mobile-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span dir="ltr">+966 5 44 58 44 58</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@golden-western.sa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="container top-content">
-            <div class="contact-mini">
-                <a href="tel:+966500000000" class="contact-mini-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>+966 50 000 0000</span>
-                </a>
-                <a href="mailto:info@golden-western.com" class="contact-mini-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>info@golden-western.com</span>
-                </a>
+        <div class="container">
+            <div class="top-content">
+                <div class="contact-mini">
+                    <div class="contact-mini-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>جدة، المملكة العربية السعودية</span>
+                    </div>
+                    <div class="contact-mini-item">
+                        <i class="fas fa-clock"></i>
+                        <span>السبت - الخميس: 7 ص - 5 م</span>
+                    </div>
+                </div>
+                <div class="theme-language-wrapper">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="en"> <img src="https://flagcdn.com/16x12/us.png" alt="English"> EN </button>
+                        <button class="lang-btn active" data-lang="ar"> <img src="https://flagcdn.com/16x12/sa.png" alt="العربية"> AR </button>
+                    </div>
+                    <div class="theme-switcher">
+                        <button class="theme-btn" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <button class="theme-btn active" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="theme-language-wrapper">
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="ar">
-                        <img src="assets/images/flags/sa.png" alt="عربي"> العربية
-                    </button>
-                    <button class="lang-btn" data-lang="en">
-                        <img src="assets/images/flags/us.png" alt="English"> English
-                    </button>
-                </div>
-                <div class="theme-switcher">
-                    <button class="theme-btn active" data-theme="dark"><i class="fas fa-moon"></i></button>
-                    <button class="theme-btn" data-theme="light"><i class="fas fa-sun"></i></button>
-                </div>
         </div>
-    
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Golden Western" class="logo-img">
+                <img src="assets/images/logo.png" alt="Golden Western Logo" class="logo-img">
                 <div class="logo-text">
-                    <h1>Golden Western</h1>
+                    <h1 id="company-name">مصنع الغربية الذهبية</h1>
                     <p>للخرسانة الجاهزة</p>
                 </div>
             </a>
-            
             <ul class="nav-links">
                 <li><a href="#home" class="active">الرئيسية</a></li>
-                <li><a href="#about">عن الشركة</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#why-choose-us">لماذا نحن</a></li>
                 <li><a href="#products">المنتجات</a></li>
                 <li><a href="#projects">المشاريع</a></li>
                 <li><a href="#partners">الشركاء</a></li>
                 <li><a href="#gallery">الشهادات</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
-            
-            <a href="#contact" class="quote-btn">اطلب عرض سعر</a>
-            
-            <button class="mobile-menu-toggle" aria-label="القائمة">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="#contact" class="quote-btn">
+                    <i class="fas fa-calculator"></i>
+                    <span>اطلب عرض سعر</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section id="home" class="hero">
         <div class="video-background">
-            <div class="hero-bg-fallback"></div>
-        <div class="video-overlay"></div>
-        
+            <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="metadata">
+                <source src="assets/video/hero.mp4" type="video/mp4">
+            </video>
+            <img src="assets/images/hero/hero-1.jpg" alt="خلفية" class="video-fallback" onerror="this.style.display='block'">
+            <div class="video-overlay"></div>
+        </div>
         <div class="hero-content">
-            <span class="hero-badge">خبرة أكثر من 20 عاماً في مجال الخرسانة</span>
-            <h1 class="hero-title">
-                <span>شركة Golden Western</span>
-                <br>للخرسانة الجاهزة
-            </h1>
-            <p class="hero-subtitle">شركة رائدة في إنتاج وتوريد الخرسانة عالية الجودة في المملكة العربية السعودية</p>
+            <div class="hero-badge">ريادة الصناعة منذ عام ٢٠١٢</div>
+            <h1 class="hero-title">بناء المستقبل<br><span>صبة تلو صبة</span></h1>
+            <p class="hero-subtitle">نحن نقدم حلول الخرسانة الجاهزة عالية الجودة بأسطول يزيد عن 100 خلاطة وتقنية ألمانية متقدمة.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-building"></i>
-                    <span class="btn-text-ar">شاهد مشاريعنا</span>
-                    <span class="btn-text-en" style="display:none">View Projects</span>
+                    <i class="fas fa-hard-hat"></i>
+                    <span>شاهد المشاريع</span>
                 </a>
                 <a href="#contact" class="btn btn-secondary">
                     <i class="fas fa-phone-alt"></i>
-                    <span class="btn-text-ar">اتصل بنا</span>
-                    <span class="btn-text-en" style="display:none">Contact Us</span>
+                    <span>اتصل بنا</span>
                 </a>
             </div>
+        </div>
     </section>
-    
+
     <!-- Stats Section -->
     <section class="animated-stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" data-count="500">0</div>
-                    <div class="stat-label">مشروع منجز</div>
+                    <div class="stat-number" data-count="10">0+</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="200">0</div>
-                    <div class="stat-label">عميل سعيد</div>
+                    <div class="stat-number" data-count="3">0+</div>
+                    <div class="stat-label">مصانع خلط</div>
+                </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="20">0</div>
-                    <div class="stat-label">سنة خبرة</div>
+                    <div class="stat-number" data-count="10">0+</div>
+                    <div class="stat-label">محطات</div>
+                </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">معدات ومركبات</div>
+                    <div class="stat-number" data-count="120">0+</div>
+                    <div class="stat-label">خلاطات نقل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="25">0+</div>
+                    <div class="stat-label">مضخات متحركة</div>
+                </div>
             </div>
+        </div>
     </section>
-    
+
     <!-- About Section -->
-    <section class="about-section" id="about">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">عن الشركة</h2>
-                <p class="section-desc">شركة Golden Western للخرسانة الجاهزة - رواد في صناعة الخرسانة عالية الجودة</p>
+                <h2 class="section-title">عن مصنع الغربية الذهبية</h2>
+                <p class="section-desc">عقد من التميز في توريد الخرسانة الجاهزة، ودعم ازدهار البنية التحتية في المملكة العربية السعودية.</p>
             </div>
-            
             <div class="about-grid">
                 <div class="about-content">
                     <h3>خبرة وجودة متميزة</h3>
-                    <p>نحن شركة متخصصة في إنتاج وتوريد الخرسانة الجاهزة عالية الجودة، حيث نلتزم بأعلى المعايير العالمية في التصنيع. خبرتنا تمتد لأكثر من 20 عاماً في سوق المملكة العربية السعودية.</p>
+                    <p>نحن شركة متخصصة في إنتاج وتوريد الخرسانة الجاهزة عالية الجودة، حيث نلتزم بأعلى المعايير العالمية في التصنيع. خبرتنا تمتد لأكثر من 10 عاماً في سوق المملكة العربية السعودية.</p>
                     <ul class="about-features">
-                        <li><i class="fas fa-check-circle"></i> خرسانة عالية المقاومة</li>
-                        <li><i class="fas fa-check-circle"></i> مواد خام عالية الجودة</li>
-                        <li><i class="fas fa-check-circle"></i> معدات حديثة ومتطورة</li>
+                        <li><i class="fas fa-check-circle"></i> شهادات ISO المعتمدة</li>
+                        <li><i class="fas fa-check-circle"></i> تقنية ألمانية متطورة</li>
+                        <li><i class="fas fa-check-circle"></i> أسطول نقل واسع</li>
                         <li><i class="fas fa-check-circle"></i> فريق هندسي متخصص</li>
                     </ul>
                 </div>
                 <div class="about-image">
                     <img src="assets/images/hero/hero-1.jpg" alt="عن الشركة" loading="lazy">
                 </div>
+            </div>
         </div>
     </section>
-    
-    <!-- Features Section -->
-    <section class="features-section" id="why-us">
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="features-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">لماذا نحن</h2>
-                <p class="section-desc">نتميز بالجودة والكفاءة في كل مشروع نقوم به</p>
+                <h2 class="section-title">لماذا تختارنا</h2>
+                <p class="section-desc">اختبر الفرق مع تقنيتنا المتطورة والتزامنا الثابت بالجودة</p>
             </div>
-            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3 class="feature-title">جودة عالية</h3>
-                    <p class="feature-desc">نلتزم بأعلى معايير الجودة في إنتاج الخرسانة باستخدام أفضل المواد الخام.</p>
+                    <h3 class="feature-title">شهادة NRMCA المعتمدة</h3>
+                    <p class="feature-desc">نحن واحدة من 3 شركات فقط في سوق الخرسانة السعودي تحمل شهادة NRMCA العالمية.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-truck-fast"></i>
+                        <i class="fas fa-file-contract"></i>
                     </div>
-                    <h3 class="feature-title">توصيل سريع</h3>
-                    <p class="feature-desc">أسطول حديث من سيارات الخلط_ready mix Delivery ensures timely arrival.</p>
+                    <h3 class="feature-title">متوافق مع الكود السعودي</h3>
+                    <p class="feature-desc">جميع منتجاتنا الخرسانية متوافقة تماماً مع الكود السعودي لمواد البناء.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-medal"></i>
                     </div>
-                    <h3 class="feature-title">فريق متخصص</h3>
-                    <p class="feature-desc">مهندسون وفنيون ذوو خبرة عالية يضمنون جودة المنتج النهائي.</p>
+                    <h3 class="feature-title">جودة معتمدة عالمياً</h3>
+                    <p class="feature-desc">عمليات معتمدة بشهادات ISO 9001:2015 و ISO 14001:2015.</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-industry"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <h3 class="feature-title">مصانع حديثة</h3>
-                    <p class="feature-desc">معدات تصنيع متطورة وتكنولوجيا ألمانية في إنتاج الخرسانة.</p>
+                    <h3 class="feature-title">تكنولوجيا متطورة</h3>
+                    <p class="feature-desc">تكنولوجيا خلط ألمانية مع أنظمة آلية ومراقبة جودة فورية.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3 class="feature-title">التحكم في درجة الحرارة</h3>
+                    <p class="feature-desc">مصانع ثلج ومبردات في الموقع لدرجة حرارة الخرسانة المثالية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck-moving"></i>
+                    </div>
+                    <h3 class="feature-title">أسطول كبير</h3>
+                    <p class="feature-desc">أكثر من ١٠٠ خلاطة مرسيدس مع تتبع GPS لخدمة لوجستية فعالة.</p>
+                </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Products Section -->
-    <section class="products-section" id="products">
+    <section id="products" class="products-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">منتجاتنا</h2>
-                <p class="section-desc">مجموعة متنوعة من الخرسانة عالية الجودة</p>
+                <h2 class="section-title">حلولنا الخرسانية</h2>
+                <p class="section-desc">مجموعة شاملة من منتجات الخرسانة الجاهزة لكل احتياجات البناء</p>
             </div>
-            
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-icon">
                         <i class="fas fa-cubes"></i>
                     </div>
-                    <h3 class="product-title">خرسانة جاهزة</h3>
-                    <p class="product-desc">خرسانة ready mix بجميع المواصفات والمقاسات المطلوبة.</p>
+                    <h3 class="product-title">خرسانة قياسية</h3>
+                    <p class="product-desc">درجات M20-M60 لأساسات المباني السكنية والتجارية مع متانة ممتازة.</p>
                 </div>
-                
                 <div class="product-card">
                     <div class="product-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3 class="product-title">خرسانة مسلحة</h3>
-                    <p class="product-desc">خرسانة مسلحة عالية المقاومة للكمرات والأعمدة.</p>
+                    <h3 class="product-title">خرسانة عالية القوة</h3>
+                    <p class="product-desc">درجات M60-M100 للمباني الشاهقة والهياكل التي تتطلب قدرة تحمل فائقة.</p>
                 </div>
-                
                 <div class="product-card">
                     <div class="product-icon">
-                        <i class="fas fa-road"></i>
+                        <i class="fas fa-fill-drip"></i>
                     </div>
-                    <h3 class="product-title">خرسانة الطرق</h3>
-                    <p class="product-desc">خرسانة خاصة للطرق والممرات ذات التحمل العالي.</p>
+                    <h3 class="product-title">خرسانة ذاتية الدمك</h3>
+                    <p class="product-desc">تتدفق بسهولة في القوالب المعقدة دون اهتزاز، مثالية للهياكل المعقدة.</p>
                 </div>
-                
                 <div class="product-card">
                     <div class="product-icon">
-                        <i class="fas fa-building-columns"></i>
+                        <i class="fas fa-snowflake"></i>
                     </div>
-                    <h3 class="product-title">خرسانة الأساس</h3>
-                    <p class="product-desc">خرسانة أساس قوية للمباني السكنية والتجارية.</p>
+                    <h3 class="product-title">متحكم في درجة الحرارة</h3>
+                    <p class="product-desc">خلطات خاصة مع تحكم في درجة الحرارة باستخدام مصانع الثلج.</p>
                 </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Projects Section -->
-    <section class="projects-section" id="projects">
+    <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">مشاريعنا</h2>
-                <p class="section-desc">نفتخر بمشاريعنا الناجحة في مختلف أنحاء المملكة</p>
+                <h2 class="section-title">مشاريع مميزة</h2>
+                <p class="section-desc">تظهر تميزنا في مشاريع البناء الرئيسية عبر المملكة العربية السعودية</p>
             </div>
-            
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-project="1">
                     <div class="project-image">
-                        <img src="assets/images/projects/briman-water-plant.jpg" alt="مشروع بيرمان" loading="lazy">
+                        <img src="assets/images/projects/jeddah-central-stadium.jpg" alt="ملعب جدة المركزي" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ملعب جدة المركزي</h3>
+                        <p class="project-desc">مخصص لكأس العالم 2034، حلول خرسانية متميزة لسعة 60,000 مقعد.</p>
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">2026</div>
+                                <div>سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">250,000 م³</div>
+                                <div>متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">60,000</div>
+                                <div>سعة المقاعد</div>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">بنية تحتية</span>
+                            <span class="project-tag">حجم كبير</span>
+                            <span class="project-tag">قوة عالية</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="2">
+                    <div class="project-image">
+                        <img src="assets/images/projects/briman-water-plant.jpg" alt="مشروع مياه بيرمان" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">مشروع مياه بيرمان</h3>
-                        <p class="project-desc">محطة معالجة مياه متكاملة بجدة</p>
-                        <div class="project-tags">
-                            <span>خرسانة مسلحة</span>
-                            <span>جدة</span>
+                        <p class="project-desc">محطة معالجة مياه متكاملة بجدة بسعة كبيرة.</p>
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">2024</div>
+                                <div>سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">35,000 م³</div>
+                                <div>متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">46</div>
+                                <div>وحدة معالجة</div>
+                            </div>
                         </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/projects/jeddah-central-stadium.jpg" alt="ستاد جدة" loading="lazy">
+                        <div class="project-tags">
+                            <span class="project-tag">مياه</span>
+                            <span class="project-tag">بنية تحتية</span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ستاد مدينة جدة</h3>
-                        <p class="project-desc">الملعب الرئيسي لفعاليات المملكة</p>
-                        <div class="project-tags">
-                            <span>خرسانة خاصة</span>
-                            <span>جدة</span>
-                        </div>
                 </div>
-                
-                <div class="project-card">
+                <div class="project-card" data-project="3">
                     <div class="project-image">
                         <img src="assets/images/projects/education-campus.jpg" alt="حرم تعليمي" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">الحرم التعليمي</h3>
-                        <p class="project-desc">مجمع تعليمي متكامل</p>
-                        <div class="project-tags">
-                            <span>خرسانة جاهزة</span>
-                            <span>الرياض</span>
+                        <p class="project-desc">مجمع تعليمي متكامل بالرياض.</p>
+                        <div class="project-meta-grid">
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">2025</div>
+                                <div>سنة الانتهاء</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">22,000 م³</div>
+                                <div>متر مكعب</div>
+                            </div>
+                            <div class="project-meta-item">
+                                <div class="project-meta-value">8</div>
+                                <div>مباني</div>
+                            </div>
                         </div>
+                        <div class="project-tags">
+                            <span class="project-tag">تعليم</span>
+                            <span class="project-tag">تجاري</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Partners Section -->
-    <section class="partners-section" id="partners">
+    <section id="partners" class="partners-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">شركاؤنا</h2>
                 <p class="section-desc">نفخر بشراكتنا مع كبرى الشركات في المملكة</p>
             </div>
-        
+        </div>
         <div class="partners-marquee-container">
             <div class="partners-marquee">
                 <div class="partner-logo">
@@ -377,11 +534,12 @@
                 <div class="partner-logo">
                     <img src="assets/images/partners/raz.svg" alt="Raz" class="partner-img">
                 </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Gallery Section - Certificates -->
-    <section class="gallery-slider-section" id="gallery">
+    <section id="gallery" class="gallery-slider-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">الشهادات والاعتمادات</h2>
@@ -390,120 +548,132 @@
             
             <div class="gallery-slider-container">
                 <div class="gallery-slider" id="gallerySlider">
-                    <!-- Certificate Slides -->
+                    <!-- Certificate Slides - 12 certificates -->
                     <div class="gallery-slide active">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_1.jpg" alt="شهادة 1" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_1.jpg" alt="شهادة 1" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+1'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">1 / 12</div>
                             <h3 class="gallery-title">شهادة الأيزو 9001</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_2.jpg" alt="شهادة 2" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_2.jpg" alt="شهادة 2" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+2'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">2 / 12</div>
                             <h3 class="gallery-title">شهادة الجودة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_3.jpg" alt="شهادة 3" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_3.jpg" alt="شهادة 3" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+3'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">3 / 12</div>
                             <h3 class="gallery-title">شهادة الاعتماد</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_4.jpg" alt="شهادة 4" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_4.jpg" alt="شهادة 4" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+4'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">4 / 12</div>
                             <h3 class="gallery-title">شهادة السلامة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_5.jpg" alt="شهادة 5" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_5.jpg" alt="شهادة 5" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+5'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">5 / 12</div>
                             <h3 class="gallery-title">شهادة البيئة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_6.jpg" alt="شهادة 6" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_6.jpg" alt="شهادة 6" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+6'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">6 / 12</div>
                             <h3 class="gallery-title">شهادة الاعتماد</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_7.jpg" alt="شهادة 7" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_7.jpg" alt="شهادة 7" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+7'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">7 / 12</div>
                             <h3 class="gallery-title">شهادة التميز</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_8.jpg" alt="شهادة 8" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_8.jpg" alt="شهادة 8" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+8'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">8 / 12</div>
                             <h3 class="gallery-title">شهادة الجودة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_9.jpg" alt="شهادة 9" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_9.jpg" alt="شهادة 9" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+9'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">9 / 12</div>
                             <h3 class="gallery-title">شهادة الاعتماد</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_10.jpg" alt="شهادة 10" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_10.jpg" alt="شهادة 10" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+10'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">10 / 12</div>
                             <h3 class="gallery-title">شهادة السلامة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_11.jpg" alt="شهادة 11" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_11.jpg" alt="شهادة 11" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+11'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">11 / 12</div>
                             <h3 class="gallery-title">شهادة البيئة</h3>
                         </div>
+                    </div>
                     <div class="gallery-slide">
                         <div class="gallery-image-container">
-                            <img src="assets/images/gallery/certs/cert_12.jpg" alt="شهادة 12" class="gallery-image" loading="lazy">
+                            <img src="assets/images/gallery/certs/cert_12.jpg" alt="شهادة 12" class="gallery-image" loading="lazy" onerror="this.src='https://via.placeholder.com/707x1000/003366/FFD700?text=شهادة+12'">
                         </div>
                         <div class="gallery-slide-content">
                             <div class="gallery-number">12 / 12</div>
                             <h3 class="gallery-title">شهادة التميز</h3>
                         </div>
+                    </div>
                 </div>
                 
                 <div class="gallery-nav">
                     <button class="gallery-nav-btn" id="prevBtn"><i class="fas fa-chevron-right"></i></button>
-                    <span class="gallery-counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+                    <span class="gallery-counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span></span>
                     <button class="gallery-nav-btn" id="nextBtn"><i class="fas fa-chevron-left"></i></button>
                 </div>
                 
                 <!-- Thumbnails -->
                 <div class="gallery-thumbnails" id="galleryThumbs">
-                    <!-- Generated by JS -->
                 </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">اتصل بنا</h2>
@@ -520,43 +690,55 @@
                             <h3>الموقع</h3>
                             <p>جدة - المملكة العربية السعودية</p>
                         </div>
-                    
+                    </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-details">
                             <h3>الهاتف</h3>
-                            <p>+966 50 000 0000</p>
+                            <p dir="ltr">+966 5 44 58 44 58</p>
                         </div>
-                    
+                    </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
                             <h3>البريد الإلكتروني</h3>
-                            <p>info@golden-western.com</p>
+                            <p>info@golden-western.sa</p>
                         </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>أوقات العمل</h3>
+                            <p>السبت - الخميس: 7 ص - 5 م</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="الاسم" required>
+                        <input type="text" name="name" class="form-control" placeholder="الاسم الكامل" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" class="form-control" placeholder="رقم الهاتف" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="رقم الهاتف" required dir="ltr">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="البريد الإلكتروني">
+                        <input type="email" name="email" class="form-control" placeholder="البريد الإلكتروني" dir="ltr">
                     </div>
                     <div class="form-group">
                         <select name="concrete_type" class="form-control" required>
-                            <option value="">نوع الخرسانة</option>
+                            <option value="">نوع الخرسانة المطلوبة</option>
                             <option value="ready_mix">خرسانة جاهزة</option>
                             <option value="reinforced">خرسانة مسلحة</option>
+                            <option value="high_strength">خرسانة عالية القوة</option>
                             <option value="foundation">خرسانة أساس</option>
                             <option value="road">خرسانة طرق</option>
+                            <option value="self_compacting">خرسانة ذاتية الدمك</option>
                             <option value="other">أخرى</option>
                         </select>
                     </div>
@@ -564,14 +746,15 @@
                         <input type="number" name="quantity" class="form-control" placeholder="الكمية المطلوبة (متر مكعب)">
                     </div>
                     <div class="form-group">
-                        <textarea name="message" class="form-control" rows="4" placeholder="الرسالة"></textarea>
+                        <textarea name="message" class="form-control" rows="4" placeholder="الرسالة أو ملاحظات إضافية"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         <i class="fas fa-paper-plane"></i>
-                        <span>إرسال</span>
+                        <span>إرسال الطلب</span>
                     </button>
                 </form>
             </div>
+        </div>
     </section>
     
     <!-- Footer -->
@@ -582,23 +765,24 @@
                     <a href="index.html" class="logo">
                         <img src="assets/images/logo.png" alt="Golden Western" class="logo-img">
                         <div class="logo-text">
-                            <h1>Golden Western</h1>
+                            <h1>مصنع الغربية الذهبية</h1>
                             <p>للخرسانة الجاهزة</p>
                         </div>
                     </a>
-                    <p>شركة رائدة في مجال إنتاج وتوريد الخرسانة عالية الجودة في المملكة العربية السعودية.</p>
+                    <p>شركة رائدة في مجال إنتاج وتوريد الخرسانة عالية الجودة في المملكة العربية السعودية منذ 2012.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
+                </div>
                 
                 <div class="footer-links">
                     <h3>روابط سريعة</h3>
                     <ul>
                         <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-left"></i> عن الشركة</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
                         <li><a href="#products"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
                         <li><a href="#projects"><i class="fas fa-chevron-left"></i> المشاريع</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
@@ -619,15 +803,17 @@
                     <h3>اتصل بنا</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> جدة - المملكة</li>
-                        <li><i class="fas fa-phone-alt"></i> +966 50 000 0000</li>
-                        <li><i class="fas fa-envelope"></i> info@golden-western.com</li>
+                        <li><i class="fas fa-phone-alt"></i> +966 5 44 58 44 58</li>
+                        <li><i class="fas fa-envelope"></i> info@golden-western.sa</li>
                     </ul>
                 </div>
+            </div>
             
             <div class="copyright">
-                <p>&copy; 2024 شركة Golden Western للخرسانة الجاهزة. جميع الحقوق محفوظة.</p>
+                <p>&copy; <span id="current-year">2024</span> مصنع الغربية الذهبية للخرسانة الجاهزة. جميع الحقوق محفوظة.</p>
                 <a href="privacy-policy.html" class="privacy-link">سياسة الخصوصية</a>
             </div>
+        </div>
     </footer>
     
     <!-- Back to Top -->
@@ -635,14 +821,10 @@
         <i class="fas fa-arrow-up"></i>
     </a>
     
-    <!-- Three.js Background -->
-    <div id="three-container"></div>
-    
     <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/stats.js"></script>
     <script src="assets/js/gallery.js"></script>
 </body>
-</html></parameter>
-</create_file>
+</html>
+
