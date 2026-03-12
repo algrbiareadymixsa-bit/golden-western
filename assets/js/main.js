@@ -81,21 +81,6 @@ function toggleTheme(theme) {
         document.querySelectorAll('.theme-btn[data-theme="dark"]').forEach(btn => btn.classList.add('active'));
         document.querySelectorAll('.theme-btn[data-theme="light"]').forEach(btn => btn.classList.remove('active'));
     }
-    localStorage.setItem('theme', theme);
-}
-
-function setLanguage(lang) {
-    // Update language buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    
-    // Store preference
-    localStorage.setItem('language', lang);
-    
-    // Here you would implement full language switching
-    // For now, we just update the buttons
-    console.log('Language set to:', lang);
 }
 
 // ============================================
@@ -105,19 +90,8 @@ function setLanguage(lang) {
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const menuOverlay = document.getElementById('menuOverlay');
-    if (mobileMenu && menuOverlay) {
-        mobileMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-    }
-}
-
-function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
-    if (mobileMenu && menuOverlay) {
-        mobileMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-    }
+    mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
 }
 
 // ============================================
@@ -129,10 +103,10 @@ function handleNavigationScroll() {
     const backToTop = document.getElementById('backToTop');
     
     if (window.scrollY > 50) {
-        if (navbar) navbar.classList.add('scrolled');
+        navbar.classList.add('scrolled');
         if (backToTop) backToTop.classList.add('show');
     } else {
-        if (navbar) navbar.classList.remove('scrolled');
+        navbar.classList.remove('scrolled');
         if (backToTop) backToTop.classList.remove('show');
     }
 
@@ -163,14 +137,15 @@ function handleNavigationScroll() {
 function handleFormSubmit(e) {
     e.preventDefault();
     
-    const form = e.target;
     const formData = {
-        name: form.querySelector('input[name="name"]')?.value?.trim() || '',
-        phone: form.querySelector('input[name="phone"]')?.value?.trim() || '',
-        email: form.querySelector('input[name="email"]')?.value?.trim() || '',
-        concrete_type: form.querySelector('select[name="concrete_type"]')?.value || '',
-        quantity: form.querySelector('input[name="quantity"]')?.value?.trim() || '',
-        message: form.querySelector('textarea[name="message"]')?.value?.trim() || '',
+        name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        productType: document.getElementById('productType').value,
+        concreteType: document.querySelector('input[name="concreteType"]:checked').value,
+        quantity: document.getElementById('quantity').value,
+        projectLocation: document.getElementById('projectLocation').value.trim(),
+        message: document.getElementById('message').value.trim(),
         timestamp: new Date().toLocaleString('en-US', { 
             timeZone: 'Asia/Riyadh',
             year: 'numeric',
@@ -184,31 +159,36 @@ function handleFormSubmit(e) {
         source: 'golden-western-website'
     };
     
-    if (!formData.name || !formData.phone) {
-        alert('الرجاء إدخال الاسم ورقم الهاتف');
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+        alert('Please fill in all required fields: Name, Email, Phone, and Message');
         return;
     }
     
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = document.querySelector('#projectInquiryForm button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
     submitBtn.disabled = true;
     
     submitToGoogleSheets(formData).then(result => {
         if (result.success) {
-            alert('شكراً لتواصلكم معنا! تم استلام طلبكم بنجاح.');
-            form.reset();
+            alert('شكراً لتواصلكم معنا! تم استلام طلبكم بنجاح وسنقوم بالرد عليكم في أقرب وقت ممكن.');
+            document.getElementById('projectInquiryForm').reset();
+            const quantityDisplay = document.getElementById('quantityDisplay');
+            if (quantityDisplay) {
+                quantityDisplay.textContent = '0 م³';
+                quantityDisplay.classList.remove('show');
+            }
             sendEmailNotification(formData);
         } else {
             saveToLocalStorage(formData);
-            alert('شكراً لتواصلكم معنا! تم حفظ طلبكم.');
-            form.reset();
+            alert('شكراً لتواصلكم معنا! تم حفظ طلبكم محلياً وسنقوم بالرد عليكم في أقرب وقت ممكن.');
+            document.getElementById('projectInquiryForm').reset();
         }
     }).catch(error => {
         console.error('Form submission error:', error);
         saveToLocalStorage(formData);
-        alert('شكراً لتواصلكم معنا! تم استلام طلبكم.');
-        form.reset();
+        alert('شكراً لتواصلكم معنا! تم استلام طلبكم وسنقوم بالرد عليكم قريباً.');
+        document.getElementById('projectInquiryForm').reset();
     }).finally(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
@@ -216,112 +196,70 @@ function handleFormSubmit(e) {
 }
 
 // ============================================
-// Video Fallback
+// Newsletter Form Handler
 // ============================================
 
-function setupVideoFallback() {
-    const video = document.getElementById('heroVideo');
-    const fallback = document.querySelector('.video-fallback');
+function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('newsletter-input').value;
     
-    if (video) {
-        // Handle video error
-        video.addEventListener('error', function() {
-            console.log('Video failed to load, showing fallback');
-            if (fallback) {
-                fallback.style.display = 'block';
-                fallback.classList.add('error');
-            }
-        });
+    if (email) {
+        const formData = {
+            email: email,
+            type: 'newsletter',
+            timestamp: new Date().toISOString()
+        };
         
-        // Also check if video can't play
-        video.addEventListener('stalled', function() {
-            if (fallback) {
-                fallback.style.display = 'block';
-            }
+        submitToGoogleSheets(formData).then(() => {
+            alert('شكراً لاشتراكك في نشرتنا الإخبارية!');
+            e.target.reset();
+        }).catch(() => {
+            console.log('Newsletter subscription saved locally:', email);
+            alert('شكراً لاشتراكك في نشرتنا الإخبارية!');
+            e.target.reset();
         });
-        
-        // If video is not supported, show fallback
-        if (!video.canPlayType('video/mp4')) {
-            if (fallback) {
-                fallback.style.display = 'block';
-            }
+    }
+}
+
+// ============================================
+// Concrete Calculation
+// ============================================
+
+function setupConcreteCalculation() {
+    const quantityInput = document.getElementById('quantity');
+    const quantityDisplay = document.getElementById('quantityDisplay');
+    
+    if (!quantityInput || !quantityDisplay) return;
+    
+    quantityInput.addEventListener('input', function() {
+        const quantity = parseFloat(this.value) || 0;
+        if (quantity > 0) {
+            quantityDisplay.textContent = `${quantity.toFixed(2)} م³`;
+            quantityDisplay.classList.add('show');
+        } else {
+            quantityDisplay.classList.remove('show');
+        }
+    });
+    
+    if (quantityInput.value) {
+        const quantity = parseFloat(quantityInput.value) || 0;
+        if (quantity > 0) {
+            quantityDisplay.textContent = `${quantity.toFixed(2)} م³`;
+            quantityDisplay.classList.add('show');
         }
     }
 }
 
 // ============================================
-// Three.js Background
+// Video Fallback
 // ============================================
 
-function initThreeBackground() {
-    const container = document.getElementById('three-container');
-    if (!container || typeof THREE === 'undefined') return;
-    
-    try {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        container.appendChild(renderer.domElement);
-        
-        // Create particles
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 500;
-        const posArray = new Float32Array(particlesCount * 3);
-        
-        for(let i = 0; i < particlesCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 10;
-        }
-        
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.02,
-            color: 0xFFD700,
-            transparent: true,
-            opacity: 0.8
+function setupVideoFallback() {
+    const video = document.querySelector('video');
+    if (video) {
+        video.addEventListener('error', function() {
+            this.style.display = 'none';
         });
-        
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-        
-        camera.position.z = 3;
-        
-        // Animation
-        let mouseX = 0;
-        let mouseY = 0;
-        
-        document.addEventListener('mousemove', (event) => {
-            mouseX = event.clientX / window.innerWidth - 0.5;
-            mouseY = event.clientY / window.innerHeight - 0.5;
-        });
-        
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            particlesMesh.rotation.y += 0.0005;
-            particlesMesh.rotation.x += 0.0005;
-            
-            // Gentle mouse movement
-            particlesMesh.rotation.y += mouseX * 0.05;
-            particlesMesh.rotation.x += mouseY * 0.05;
-            
-            renderer.render(scene, camera);
-        }
-        
-        animate();
-        
-        // Handle resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-        
-    } catch (error) {
-        console.log('Three.js initialization failed:', error);
     }
 }
 
@@ -339,39 +277,38 @@ function initializeEventListeners() {
         });
     });
     
-    // Language switcher
-    const langBtns = document.querySelectorAll('.lang-btn');
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.dataset.lang;
-            setLanguage(lang);
-        });
-    });
-    
-    // Mobile menu toggle
+    // Mobile menu
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const menuOverlay = document.getElementById('menuOverlay');
     
     if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', toggleMobileMenu);
     
-    // Mobile nav links - close menu on click
+    // Mobile nav links
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', () => {
-            closeMobileMenu();
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
         });
     });
     
     // Scroll events
     window.addEventListener('scroll', handleNavigationScroll);
     
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
+    // Form submissions
+    const projectForm = document.getElementById('projectInquiryForm');
+    if (projectForm) {
+        projectForm.addEventListener('submit', handleFormSubmit);
+    }
+    
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
     }
     
     // Back to top
@@ -384,14 +321,10 @@ function initializeEventListeners() {
     }
     
     // Set current year
-    const currentYearEl = document.getElementById('current-year');
-    if (currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
+    const currentYear = document.getElementById('current-year');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
     }
-    
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    toggleTheme(savedTheme);
 }
 
 // ============================================
@@ -400,18 +333,8 @@ function initializeEventListeners() {
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
+    setupConcreteCalculation();
     setupVideoFallback();
     handleNavigationScroll();
-    
-    // Initialize Three.js background
-    if (typeof THREE !== 'undefined') {
-        initThreeBackground();
-    } else {
-        // Load Three.js from CDN if not already loaded
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js';
-        script.onload = initThreeBackground;
-        document.head.appendChild(script);
-    }
 });
 
